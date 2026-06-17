@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing · LLMPORT AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="wm" style="font-size:19px">LLMPORT</span><span class="wm" style="font-size:12px;color:#6E3AFF;font-weight:600">.ai</span></a>
+  <nav class="topnav">
+    <a href="models.html">Models</a><a href="tools.html">Tools</a><a href="api.html">API</a><a href="pricing.html" class="on">Pricing</a><a href="#">Docs</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:12px;font-size:13px">
+    <a href="#">Login</a><a class="pill" href="create.html">Start for Free</a>
+  </div>
+</header>
+
+<div class="wrap" style="text-align:center;padding-bottom:18px">
+  <h1 class="h1" style="font-size:26px;margin-bottom:8px">订阅或按量，丰俭由人</h1>
+  <p class="lead">个人创作者按月订阅，规模化团队按量充值走 API。失败不扣费。</p>
+  <div class="seg" style="margin-top:18px" id="seg">
+    <span class="on" data-tab="sub">订阅套餐</span><span data-tab="payg">按量充值</span>
+  </div>
+</div>
+
+<!-- 订阅 -->
+<div class="wrap" id="sub" style="padding-top:6px">
+  <div style="text-align:center;margin-bottom:18px">
+    <div class="seg" id="bill"><span class="on" data-bill="m">月付</span><span data-bill="a">年付 省 20%</span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+    <div class="plan">
+      <div class="pn">Free</div>
+      <div class="pp" data-m="$0" data-a="$0">$0<small> / 月</small></div>
+      <ul>
+        <li><i class="ti ti-check"></i>每月赠送试用额度</li>
+        <li><i class="ti ti-check"></i>仅低成本档模型</li>
+        <li><i class="ti ti-check"></i>产物带水印</li>
+        <li><i class="ti ti-check"></i>社区支持</li>
+      </ul>
+      <div class="cta" style="border:0.5px solid #2a2a30">免费开始</div>
+    </div>
+    <div class="plan featured">
+      <span style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#6E3AFF;color:#fff;font-size:10px;padding:2px 10px;border-radius:999px">最受欢迎</span>
+      <div class="pn">Pro</div>
+      <div class="pp" data-m="$29" data-a="$23">$29<small> / 月</small></div>
+      <ul>
+        <li><i class="ti ti-check"></i>每月 8,000 Credits</li>
+        <li><i class="ti ti-check"></i>全部模型 · 无水印</li>
+        <li><i class="ti ti-check"></i>商用授权</li>
+        <li><i class="ti ti-check"></i>标准生成队列</li>
+      </ul>
+      <div class="cta" style="background:#6E3AFF;color:#fff">升级 Pro</div>
+    </div>
+    <div class="plan">
+      <div class="pn">Scale</div>
+      <div class="pp" data-m="$99" data-a="$79">$99<small> / 月</small></div>
+      <ul>
+        <li><i class="ti ti-check"></i>每月 30,000 Credits</li>
+        <li><i class="ti ti-check"></i>优先生成队列</li>
+        <li><i class="ti ti-check"></i>团队 5 席协作</li>
+        <li><i class="ti ti-check"></i>含 API 额度赠送</li>
+      </ul>
+      <div class="cta" style="border:0.5px solid #2a2a30">联系销售</div>
+    </div>
+  </div>
+</div>
+
+<!-- 按量 -->
+<div class="wrap" id="payg" style="display:none;padding-top:6px">
+  <p class="lead" style="text-align:center;margin-bottom:18px">充值积分按调用扣费。API 积分与站内积分独立。</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+    <div class="pk"><div class="c">1,000</div><div class="p">$9</div><div class="u">$0.0090 / 积分</div><div class="b">购买</div></div>
+    <div class="pk" style="border:1.5px solid #6E3AFF;position:relative"><span style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#6E3AFF;color:#fff;font-size:10px;padding:2px 10px;border-radius:999px">最受欢迎</span><div class="c">5,000</div><div class="p">$39</div><div class="u">$0.0078 / 积分</div><div class="b" style="background:#6E3AFF;border-color:#6E3AFF">购买</div></div>
+    <div class="pk"><div class="c">20,000</div><div class="p">$139</div><div class="u">$0.0070 / 积分</div><div class="b">购买</div></div>
+    <div class="pk"><div class="c">50,000</div><div class="p">$299</div><div class="u">$0.0060 / 积分</div><div class="b">购买</div></div>
+  </div>
+</div>
+
+<!-- 逐模型对比 -->
+<div class="wrap" style="padding-top:10px;padding-bottom:48px">
+  <div style="border:0.5px solid #1d1d22;border-radius:12px;overflow:hidden">
+    <div style="padding:12px 16px;border-bottom:0.5px solid #1d1d22;background:#131316;font-size:14px;font-weight:500">逐模型价格对比 <span style="font-size:12px;color:#6b6b72;font-weight:400">（示例数据）</span></div>
+    <table class="pt">
+      <tr><th style="width:34%">模型 / 规格</th><th style="width:22%;color:#c3b2ff">我们</th><th style="width:22%">Fal</th><th style="width:22%">Replicate</th></tr>
+      <tr><td>Seedance 2.0 · 720p /秒</td><td style="color:#c3b2ff">$0.146</td><td style="color:#9a9aa2">$0.18</td><td style="color:#9a9aa2">$0.19</td></tr>
+      <tr><td>Kling 3.0 · 标准 /秒</td><td style="color:#c3b2ff">$0.160</td><td style="color:#9a9aa2">$0.21</td><td style="color:#9a9aa2">—</td></tr>
+      <tr><td>Veo 3.1 · /秒</td><td style="color:#c3b2ff">$0.300</td><td style="color:#9a9aa2">$0.35</td><td style="color:#9a9aa2">$0.38</td></tr>
+      <tr><td>GPT Image 2 · 1K /张</td><td style="color:#c3b2ff">$0.058</td><td style="color:#9a9aa2">$0.07</td><td style="color:#9a9aa2">$0.07</td></tr>
+    </table>
+  </div>
+</div>
+
+<script>
+  var seg = document.getElementById("seg");
+  seg.addEventListener("click", function(e){
+    var t = e.target.getAttribute("data-tab"); if(!t) return;
+    seg.querySelectorAll("span").forEach(function(s){ s.classList.toggle("on", s.getAttribute("data-tab")===t); });
+    document.getElementById("sub").style.display  = (t==="sub")  ? "" : "none";
+    document.getElementById("payg").style.display = (t==="payg") ? "" : "none";
+  });
+  var bill = document.getElementById("bill");
+  bill.addEventListener("click", function(e){
+    var b = e.target.getAttribute("data-bill"); if(!b) return;
+    bill.querySelectorAll("span").forEach(function(s){ s.classList.toggle("on", s.getAttribute("data-bill")===b); });
+    document.querySelectorAll(".plan .pp").forEach(function(p){
+      var val = p.getAttribute(b==="m" ? "data-m" : "data-a");
+      p.innerHTML = val + "<small> / 月</small>";
+    });
+  });
+</script>
+
+</body>
+</html>
