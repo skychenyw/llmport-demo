@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Create · LLMPORT AI</title>
+<title>Create · 视频创作 · LLMPORT AI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
@@ -29,65 +29,182 @@
     <a class="nav" href="creations.html"><i class="ti ti-folder"></i>My Creations</a>
     <div class="sdiv"></div>
     <div class="sgroup">Developers</div>
+    <a class="nav" href="api-platform.html"><i class="ti ti-cloud"></i>API 平台</a>
     <a class="nav" href="api.html"><i class="ti ti-api"></i>API Console</a>
-    <a class="nav" href="#"><i class="ti ti-file-text"></i>Docs</a>
+    <a class="nav" href="docs.html"><i class="ti ti-file-text"></i>Docs</a>
   </aside>
 
   <main class="main" style="display:flex;padding:0">
-    <div style="width:280px;flex-shrink:0;padding:18px;border-right:0.5px solid #1d1d22">
-      <div style="display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap">
-        <span style="font-size:12px;padding:7px 12px;border-radius:999px;background:#6E3AFF;color:#fff">Text to Video</span>
-        <span style="font-size:12px;padding:7px 12px;border-radius:999px;border:0.5px solid #2a2a30;color:#9a9aa2">Image to Video</span>
-        <span style="font-size:12px;padding:7px 12px;border-radius:999px;border:0.5px solid #2a2a30;color:#9a9aa2">Reference</span>
+    <!-- Control column -->
+    <div style="width:300px;flex-shrink:0;padding:18px;border-right:0.5px solid #1d1d22;overflow-y:auto">
+      <div class="crsub">
+        <a class="on" href="create.html">视频生成</a>
+        <a href="create-video-to-video.html">视频转视频</a>
+        <a href="create-video-editor.html">视频编辑</a>
+        <a href="create-image.html">图像</a>
       </div>
-      <div class="lbl">Model</div>
-      <div class="sel" style="margin-bottom:14px"><span id="modelName">Kling 3.0 · pro</span><i class="ti ti-chevron-down"></i></div>
-      <div id="modelNote" style="display:none;font-size:12px;color:#c3b2ff;margin:-8px 0 14px"><i class="ti ti-circle-check" style="font-size:13px;vertical-align:-2px"></i> 已从模型页选用</div>
-      <div class="lbl">Prompt</div>
-      <textarea class="dk" rows="4" style="margin-bottom:10px">一瓶精华液在大理石台面上缓慢旋转，柔和的影棚灯光，景深虚化背景。</textarea>
-      <div style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#9a9aa2;border:0.5px dashed #2a2a30;border-radius:8px;padding:8px 12px;margin-bottom:16px"><i class="ti ti-photo-plus" style="font-size:15px"></i>添加起始帧（可选）</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:18px">
-        <div><div class="lbl">时长</div><div class="sel" style="padding:8px 9px;font-size:12px"><span>5s</span><i class="ti ti-chevron-down"></i></div></div>
-        <div><div class="lbl">比例</div><div class="sel" style="padding:8px 9px;font-size:12px"><span>9:16</span><i class="ti ti-chevron-down"></i></div></div>
-        <div><div class="lbl">画质</div><div class="sel" style="padding:8px 9px;font-size:12px"><span>1080p</span><i class="ti ti-chevron-down"></i></div></div>
+
+      <div class="tabs" id="modeTabs" style="display:flex;flex-wrap:wrap">
+        <span class="on" data-mode="t2v">文生视频</span>
+        <span data-mode="i2v">图生视频</span>
+        <span data-mode="ref">参考生视频</span>
       </div>
-      <button class="btn-primary" style="width:100%;padding:11px;font-size:14px"><i class="ti ti-sparkles" style="font-size:16px;vertical-align:-2px;margin-right:4px"></i>生成 · 消耗 24 Credits</button>
+
+      <div class="field">
+        <div class="lbl">模型</div>
+        <div class="sel"><span id="modelName">Kling 3.0 · pro</span><i class="ti ti-chevron-down"></i></div>
+        <div id="modelNote" style="display:none;font-size:12px;color:#c3b2ff;margin-top:6px"><i class="ti ti-circle-check" style="font-size:13px;vertical-align:-2px"></i> 已从模型页选用</div>
+      </div>
+
+      <!-- mode-specific input -->
+      <div class="field modeblock" data-mode="i2v" style="display:none">
+        <div class="lbl">起始帧 / 结束帧</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div class="drop"><i class="ti ti-photo-plus"></i>起始帧</div>
+          <div class="drop"><i class="ti ti-photo-plus"></i>结束帧<span style="font-size:10px;color:#6b6b72">可选</span></div>
+        </div>
+      </div>
+      <div class="field modeblock" data-mode="ref" style="display:none">
+        <div class="lbl">参考图（最多 4 张，锁定角色 / 物体 / 风格）</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+          <div class="refslot"><i class="ti ti-plus"></i></div>
+          <div class="refslot"><i class="ti ti-plus"></i></div>
+          <div class="refslot"><i class="ti ti-plus"></i></div>
+          <div class="refslot"><i class="ti ti-plus"></i></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="lbl">Prompt</div>
+        <textarea class="dk" rows="4">一瓶精华液在大理石台面上缓慢旋转，柔和的影棚灯光，景深虚化背景。</textarea>
+        <span class="enhance"><i class="ti ti-wand" style="font-size:13px"></i> AI 优化提示词</span>
+      </div>
+
+      <div class="field">
+        <div class="lbl">时长</div>
+        <div class="opt-row" data-group="dur">
+          <span class="opt on" data-dur="5">5s</span>
+          <span class="opt" data-dur="10">10s</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="lbl">画面比例</div>
+        <div class="opt-row" data-group="ratio">
+          <span class="ratio on"><span class="box" style="width:22px;height:13px"></span>16:9</span>
+          <span class="ratio"><span class="box" style="width:13px;height:22px"></span>9:16</span>
+          <span class="ratio"><span class="box" style="width:18px;height:18px"></span>1:1</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="lbl">分辨率</div>
+        <div class="opt-row" data-group="res">
+          <span class="opt" data-res="480">480p</span>
+          <span class="opt on" data-res="720">720p</span>
+          <span class="opt" data-res="1080">1080p</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="lbl">生成数量</div>
+        <div class="opt-row" data-group="count">
+          <span class="opt on" data-count="1">×1</span>
+          <span class="opt" data-count="2">×2</span>
+          <span class="opt" data-count="4">×4</span>
+        </div>
+      </div>
+
+      <!-- advanced -->
+      <div class="adv-head" id="advHead">高级设置 <i class="ti ti-chevron-down" id="advChevron"></i></div>
+      <div class="adv-body" id="advBody">
+        <div class="field" style="margin-top:10px">
+          <div class="lbl">负向提示词</div>
+          <textarea class="dk" rows="2" placeholder="不想出现的元素，如：文字、水印、变形…"></textarea>
+        </div>
+        <div class="field">
+          <div class="lbl">运镜</div>
+          <div class="sel"><span>自动</span><i class="ti ti-chevron-down"></i></div>
+        </div>
+        <div class="field">
+          <div class="row-between">
+            <div><div style="font-size:13px;color:#fff">原生音频</div><div style="font-size:11px;color:#6b6b72">Seedance 等模型支持出声</div></div>
+            <div class="toggle" id="audioToggle"></div>
+          </div>
+        </div>
+        <div class="field" style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div><div class="lbl">Seed</div><input class="inp" placeholder="随机"></div>
+          <div><div class="lbl">运动强度</div><div class="sel" style="padding:9px 10px"><span>中</span><i class="ti ti-chevron-down"></i></div></div>
+        </div>
+      </div>
+
+      <div class="cost"><span>预计消耗</span><span><b id="costVal">≈ 12 Credits</b></span></div>
+      <button class="btn-primary" id="genBtn" style="width:100%;padding:11px;font-size:14px"><i class="ti ti-sparkles" style="font-size:16px;vertical-align:-2px;margin-right:4px"></i>生成 · ≈ 12 Credits</button>
     </div>
+
+    <!-- Preview column -->
     <div style="flex:1;min-width:0;padding:18px">
+      <div class="tabs" style="margin-bottom:14px"><span class="on">预览</span><span>历史</span></div>
       <div style="aspect-ratio:16/10;background:#161619;border:0.5px solid #1d1d22;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#5c5c64;font-size:13px;margin-bottom:14px">
         <i class="ti ti-player-play" style="font-size:30px;margin-bottom:8px"></i>结果预览
-        <span style="font-size:12px;margin-top:4px">生成完成后在此播放与下载</span>
+        <span style="font-size:12px;margin-top:4px">生成完成后在此播放、下载或一键再创作</span>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
         <span style="font-size:13px;color:#9a9aa2">近期作品</span>
         <a href="creations.html" style="font-size:12px;color:#c3b2ff">查看全部</a>
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
-        <div style="aspect-ratio:9/16;background:#1f1f25;border-radius:8px"></div>
-        <div style="aspect-ratio:9/16;background:#1f1f25;border-radius:8px"></div>
-        <div style="aspect-ratio:9/16;background:#1f1f25;border-radius:8px"></div>
-        <div style="aspect-ratio:9/16;background:#1f1f25;border-radius:8px"></div>
+        <div class="outcell"><i class="ti ti-player-play"></i></div>
+        <div class="outcell"><i class="ti ti-player-play"></i></div>
+        <div class="outcell"><i class="ti ti-player-play"></i></div>
+        <div class="outcell"><i class="ti ti-player-play"></i></div>
       </div>
     </div>
   </main>
 </div>
 
 <script>
-  var map = {
-    "seedance-2.0":"Seedance 2.0 · 标准",
-    "kling-3.0":"Kling 3.0 · pro",
-    "veo-3.1":"Veo 3.1",
-    "sora-2":"Sora 2",
-    "hailuo-02":"Hailuo 02",
-    "runway-gen4":"Runway Gen-4",
-    "vidu-q3":"Vidu Q3",
-    "luma-ray2":"Luma Ray 2"
-  };
-  var m = new URLSearchParams(location.search).get("model");
-  if (m && map[m]) {
-    document.getElementById("modelName").textContent = map[m];
-    document.getElementById("modelNote").style.display = "block";
+  // model from query
+  var map={"seedance-2.0":"Seedance 2.0 · 标准","kling-3.0":"Kling 3.0 · pro","veo-3.1":"Veo 3.1","sora-2":"Sora 2","hailuo-02":"Hailuo 02","runway-gen4":"Runway Gen-4","vidu-q3":"Vidu Q3","luma-ray2":"Luma Ray 2"};
+  var m=new URLSearchParams(location.search).get("model");
+  if(m&&map[m]){document.getElementById("modelName").textContent=map[m];document.getElementById("modelNote").style.display="block";}
+
+  // mode tabs -> show matching input block
+  var tabs=document.getElementById("modeTabs");
+  tabs.addEventListener("click",function(e){
+    var md=e.target.getAttribute("data-mode"); if(!md) return;
+    tabs.querySelectorAll("span").forEach(function(s){s.classList.toggle("on",s.getAttribute("data-mode")===md);});
+    document.querySelectorAll(".modeblock").forEach(function(b){b.style.display=(b.getAttribute("data-mode")===md)?"block":"none";});
+  });
+
+  // generic single-select option groups
+  document.querySelectorAll("[data-group]").forEach(function(g){
+    g.addEventListener("click",function(e){
+      var t=e.target.closest(".opt,.ratio"); if(!t||!g.contains(t)) return;
+      g.querySelectorAll(".opt,.ratio").forEach(function(o){o.classList.remove("on");});
+      t.classList.add("on"); recalc();
+    });
+  });
+
+  // advanced toggle
+  document.getElementById("advHead").addEventListener("click",function(){
+    document.getElementById("advBody").classList.toggle("open");
+    document.getElementById("advChevron").style.transform=document.getElementById("advBody").classList.contains("open")?"rotate(180deg)":"";
+  });
+  // audio toggle
+  document.getElementById("audioToggle").addEventListener("click",function(){this.classList.toggle("on");});
+
+  // cost estimate ~ Pollo credit model
+  function recalc(){
+    var perSec={480:1.132,720:2.435,1080:6.075};
+    var res=+(document.querySelector('[data-group="res"] .on')||{}).getAttribute?.("data-res")||720;
+    var dur=+(document.querySelector('[data-group="dur"] .on')||{}).getAttribute?.("data-dur")||5;
+    var cnt=+(document.querySelector('[data-group="count"] .on')||{}).getAttribute?.("data-count")||1;
+    var c=Math.round(perSec[res]*dur*cnt);
+    document.getElementById("costVal").textContent="≈ "+c+" Credits";
+    document.getElementById("genBtn").innerHTML='<i class="ti ti-sparkles" style="font-size:16px;vertical-align:-2px;margin-right:4px"></i>生成 · ≈ '+c+' Credits';
   }
+  recalc();
 </script>
 
 </body>

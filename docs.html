@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>开发者文档 · Docs · LLMPORT AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="wm" style="font-size:20px">LLMPORT</span><span class="wm" style="font-size:13px;color:#6E3AFF;font-weight:600">.ai</span></a>
+  <div style="display:flex;align-items:center;gap:14px">
+    <span class="credits"><i class="ti ti-coins" style="font-size:14px;vertical-align:-2px"></i> 18,240</span>
+    <a class="pill" href="pricing.html">Upgrade</a>
+    <span class="avatar">L</span>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="nav" href="index.html"><i class="ti ti-home"></i>Home</a>
+    <a class="nav" href="create.html"><i class="ti ti-sparkles"></i>Create</a>
+    <a class="nav" href="tools.html"><i class="ti ti-tool"></i>Tools</a>
+    <a class="nav" href="models.html"><i class="ti ti-box"></i>Models</a>
+    <a class="nav" href="creations.html"><i class="ti ti-folder"></i>My Creations</a>
+    <div class="sdiv"></div>
+    <div class="sgroup">Developers</div>
+    <a class="nav" href="api-platform.html"><i class="ti ti-cloud"></i>API 平台</a>
+    <a class="nav" href="api.html"><i class="ti ti-api"></i>API Console</a>
+    <a class="nav active" href="docs.html"><i class="ti ti-file-text"></i>Docs</a>
+  </aside>
+
+  <main class="main">
+    <h1 class="h1" style="margin-bottom:8px">开发者文档</h1>
+    <p class="lead" style="margin-bottom:18px">兼容 fal 的异步队列 API。从现有平台迁移，通常只需改 host 与 key。</p>
+
+    <div class="crsub" style="margin-bottom:24px">
+      <a href="#quickstart" class="on">快速开始</a>
+      <a href="#auth">鉴权</a>
+      <a href="#submit">提交任务</a>
+      <a href="#status">查询/取结果</a>
+      <a href="#webhook">Webhook</a>
+      <a href="#migrate">从 fal 迁移</a>
+      <a href="#models">模型列表</a>
+      <a href="#errors">错误码</a>
+    </div>
+
+    <div id="quickstart" style="margin-bottom:28px">
+      <h2 class="sec-title">快速开始（5 分钟跑通）</h2>
+      <p class="lead" style="margin-bottom:12px">三步：① 在 <a href="api.html" style="color:#c3b2ff">API Console</a> 创建 Key；② 提交生成任务拿到 <code style="color:#c3b2ff">taskId</code>；③ 轮询或用 Webhook 取结果。</p>
+      <pre style="margin:0;padding:14px;background:#0f0f12;border:0.5px solid #1d1d22;border-radius:10px;font-family:var(--font-mono);font-size:12px;line-height:1.7;color:#d7d7de;overflow-x:auto"><span style="color:#6b6b72"># 基础地址</span>
+https://api.llmport.ai/v1
+
+<span style="color:#6b6b72"># 鉴权头</span>
+X-API-KEY: $LLMPORT_KEY</pre>
+    </div>
+
+    <div id="auth" style="margin-bottom:28px">
+      <h2 class="sec-title">鉴权</h2>
+      <p class="lead">所有请求在 Header 携带 <code style="color:#c3b2ff">X-API-KEY</code>。Key 在 API Console 创建与管理，可建多把（区分 prod / staging）。请勿在前端暴露。</p>
+    </div>
+
+    <div id="submit" style="margin-bottom:28px">
+      <h2 class="sec-title">提交生成任务</h2>
+      <p class="lead" style="margin-bottom:12px"><code style="color:#c3b2ff">POST /v1/generation/{model_id}</code>，请求体即该模型的 input。返回 <code style="color:#c3b2ff">taskId</code> 与初始状态。</p>
+      <div style="border:0.5px solid #1d1d22;border-radius:10px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:14px;padding:10px 14px;border-bottom:0.5px solid #1d1d22;background:#131316">
+          <span style="font-size:13px;color:#fff">示例</span>
+          <span style="font-size:12px;color:#c3b2ff">cURL</span><span style="font-size:12px;color:#6b6b72">Python</span><span style="font-size:12px;color:#6b6b72">Node</span>
+        </div>
+        <pre style="margin:0;padding:14px;background:#0f0f12;font-family:var(--font-mono);font-size:12px;line-height:1.7;color:#d7d7de;overflow-x:auto">curl -X POST https://api.llmport.ai/v1/generation/seedance-2.0 \
+  -H "X-API-KEY: $LLMPORT_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"input":{"prompt":"...","resolution":"720p","length":5,"aspectRatio":"9:16"}}'
+<span style="color:#6b6b72"># &rarr; { "taskId": "tk_8f3a", "status": "waiting" }</span></pre>
+      </div>
+    </div>
+
+    <div id="status" style="margin-bottom:28px">
+      <h2 class="sec-title">查询状态 / 取结果</h2>
+      <p class="lead" style="margin-bottom:12px">轮询 <code style="color:#c3b2ff">GET /v1/generation/{taskId}/status</code> 直到 <code style="color:#c3b2ff">succeed</code>，结果含视频/图像 URL。失败不计费。</p>
+      <pre style="margin:0;padding:14px;background:#0f0f12;border:0.5px solid #1d1d22;border-radius:10px;font-family:var(--font-mono);font-size:12px;line-height:1.7;color:#d7d7de;overflow-x:auto">curl https://api.llmport.ai/v1/generation/tk_8f3a/status \
+  -H "X-API-KEY: $LLMPORT_KEY"
+<span style="color:#6b6b72"># &rarr; { "status": "succeed", "url": "https://cdn.llmport.ai/...mp4", "billing": { "billable": true, "unit": "second", "quantity": 5 } }</span></pre>
+      <p class="lead" style="margin-top:12px">状态机：<code style="color:#c3b2ff">waiting → processing → succeed</code>（失败为 <code style="color:#c3b2ff">failed</code>）。</p>
+    </div>
+
+    <div id="webhook" style="margin-bottom:28px">
+      <h2 class="sec-title">Webhook（可选）</h2>
+      <p class="lead">提交时带 <code style="color:#c3b2ff">webhookUrl</code>，任务完成时网关会 POST 结果到你的地址，附 HMAC 签名头供验签——免去轮询。</p>
+    </div>
+
+    <div id="migrate" style="margin-bottom:28px">
+      <h2 class="sec-title">从 fal 迁移</h2>
+      <p class="lead" style="margin-bottom:12px">协议形状与状态机对齐 fal 的异步队列。多数情况下，迁移只需两步：</p>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div class="st">换 host</div><div class="sd">把 <code style="color:#c3b2ff">queue.fal.run</code> 换成 <code style="color:#c3b2ff">api.llmport.ai</code>。</div></div>
+        <div class="step"><div class="n">2</div><div class="st">换 key</div><div class="sd">把鉴权头换成你的 X-API-KEY，字段无需改动。</div></div>
+        <div class="step"><div class="n">3</div><div class="st">A/B 验证</div><div class="sd">小流量对比质量与成本，再逐步切量。</div></div>
+      </div>
+    </div>
+
+    <div id="models" style="margin-bottom:28px">
+      <h2 class="sec-title">模型列表</h2>
+      <div style="border:0.5px solid #1d1d22;border-radius:10px;overflow:hidden">
+        <table class="pt" style="width:100%;table-layout:fixed;border-collapse:collapse">
+          <tr><th style="width:34%">model_id</th><th style="width:30%">名称</th><th style="width:36%">能力</th></tr>
+          <tr><td class="mono">seedance-2.0</td><td>Seedance 2.0</td><td style="color:#9a9aa2">文生 / 图生 / 参考 · 原生音频</td></tr>
+          <tr><td class="mono">kling-3.0</td><td>Kling 3.0</td><td style="color:#9a9aa2">文生 / 图生</td></tr>
+          <tr><td class="mono">veo-3.1</td><td>Veo 3.1</td><td style="color:#9a9aa2">文生 / 图生 · 原生音频</td></tr>
+          <tr><td class="mono">sora-2</td><td>Sora 2</td><td style="color:#9a9aa2">文生 · 原生音频</td></tr>
+          <tr><td class="mono">hailuo-02</td><td>Hailuo 02</td><td style="color:#9a9aa2">文生 / 图生</td></tr>
+          <tr><td class="mono">vidu-q3</td><td>Vidu Q3</td><td style="color:#9a9aa2">文生 / 参考 · 音画合成</td></tr>
+        </table>
+      </div>
+      <p class="lead" style="margin-top:10px"><a href="models.html" style="color:#c3b2ff">查看全部模型 →</a></p>
+    </div>
+
+    <div id="errors" style="margin-bottom:10px">
+      <h2 class="sec-title">错误码</h2>
+      <div style="border:0.5px solid #1d1d22;border-radius:10px;overflow:hidden">
+        <table class="pt" style="width:100%;table-layout:fixed;border-collapse:collapse">
+          <tr><th style="width:34%">code</th><th style="width:66%">说明</th></tr>
+          <tr><td class="mono">INVALID_INPUT</td><td style="color:#9a9aa2">参数缺失或非法</td></tr>
+          <tr><td class="mono">CONTENT_REJECTED</td><td style="color:#9a9aa2">内容被安全策略拦截</td></tr>
+          <tr><td class="mono">PROVIDER_TIMEOUT</td><td style="color:#9a9aa2">上游模型超时，可重试</td></tr>
+          <tr><td class="mono">RATE_LIMITED</td><td style="color:#9a9aa2">超出速率限制</td></tr>
+          <tr><td class="mono">INTERNAL</td><td style="color:#9a9aa2">网关内部错误</td></tr>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

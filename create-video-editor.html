@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create · AI 视频编辑 · LLMPORT AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="wm" style="font-size:20px">LLMPORT</span><span class="wm" style="font-size:13px;color:#6E3AFF;font-weight:600">.ai</span></a>
+  <div style="display:flex;align-items:center;gap:14px">
+    <span class="credits"><i class="ti ti-coins" style="font-size:14px;vertical-align:-2px"></i> 18,240</span>
+    <a class="pill" href="pricing.html">Upgrade</a>
+    <span class="avatar">L</span>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="nav" href="index.html"><i class="ti ti-home"></i>Home</a>
+    <a class="nav active" href="create.html"><i class="ti ti-sparkles"></i>Create</a>
+    <a class="nav" href="tools.html"><i class="ti ti-tool"></i>Tools</a>
+    <a class="nav" href="models.html"><i class="ti ti-box"></i>Models</a>
+    <a class="nav" href="creations.html"><i class="ti ti-folder"></i>My Creations</a>
+    <div class="sdiv"></div>
+    <div class="sgroup">Developers</div>
+    <a class="nav" href="api-platform.html"><i class="ti ti-cloud"></i>API 平台</a>
+    <a class="nav" href="api.html"><i class="ti ti-api"></i>API Console</a>
+    <a class="nav" href="docs.html"><i class="ti ti-file-text"></i>Docs</a>
+  </aside>
+
+  <main class="main" style="display:flex;padding:0">
+    <div style="width:300px;flex-shrink:0;padding:18px;border-right:0.5px solid #1d1d22;overflow-y:auto">
+      <div class="crsub">
+        <a href="create.html">视频生成</a>
+        <a href="create-video-to-video.html">视频转视频</a>
+        <a class="on" href="create-video-editor.html">视频编辑</a>
+        <a href="create-image.html">图像</a>
+      </div>
+
+      <div class="field">
+        <div class="lbl">待编辑视频</div>
+        <div class="drop"><i class="ti ti-upload"></i>上传视频开始编辑<span style="font-size:10px;color:#6b6b72">MP4 / MOV · ≤200MB</span></div>
+      </div>
+
+      <div class="field">
+        <div class="lbl">用文字描述修改</div>
+        <textarea class="dk" rows="3">把开头 2 秒删掉，整体加上自动字幕，并在结尾加 1 秒淡出。</textarea>
+        <span class="enhance"><i class="ti ti-sparkles" style="font-size:13px"></i> 让 AI 执行</span>
+      </div>
+
+      <div class="field">
+        <div class="lbl">常用操作</div>
+        <div class="opt-row">
+          <span class="opt"><i class="ti ti-cut" style="font-size:13px;vertical-align:-2px"></i> 裁剪</span>
+          <span class="opt"><i class="ti ti-letter-case" style="font-size:13px;vertical-align:-2px"></i> 自动字幕</span>
+          <span class="opt"><i class="ti ti-photo" style="font-size:13px;vertical-align:-2px"></i> 换背景</span>
+          <span class="opt"><i class="ti ti-gauge" style="font-size:13px;vertical-align:-2px"></i> 变速</span>
+          <span class="opt"><i class="ti ti-transition-right" style="font-size:13px;vertical-align:-2px"></i> 转场</span>
+          <span class="opt"><i class="ti ti-eraser" style="font-size:13px;vertical-align:-2px"></i> 去水印</span>
+          <span class="opt"><i class="ti ti-music" style="font-size:13px;vertical-align:-2px"></i> 配乐</span>
+          <span class="opt"><i class="ti ti-aspect-ratio" style="font-size:13px;vertical-align:-2px"></i> 改比例</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="lbl">导出比例</div>
+        <div class="opt-row" data-group="ratio">
+          <span class="ratio on"><span class="box" style="width:13px;height:22px"></span>9:16</span>
+          <span class="ratio"><span class="box" style="width:22px;height:13px"></span>16:9</span>
+          <span class="ratio"><span class="box" style="width:18px;height:18px"></span>1:1</span>
+        </div>
+      </div>
+
+      <div class="cost"><span>预计消耗</span><span><b>≈ 10 Credits</b></span></div>
+      <button class="btn-primary" style="width:100%;padding:11px;font-size:14px"><i class="ti ti-sparkles" style="font-size:16px;vertical-align:-2px;margin-right:4px"></i>应用编辑 · ≈ 10 Credits</button>
+      <p style="font-size:11px;color:#6b6b72;margin-top:10px;line-height:1.6">支持自然语言指令，也可点上方操作手动微调。</p>
+    </div>
+
+    <div style="flex:1;min-width:0;padding:18px">
+      <div style="aspect-ratio:16/9;background:#161619;border:0.5px solid #1d1d22;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#5c5c64;font-size:13px;margin-bottom:14px">
+        <i class="ti ti-player-play" style="font-size:30px;margin-bottom:8px"></i>编辑预览
+        <span style="font-size:12px;margin-top:4px">上传后在此查看实时编辑效果</span>
+      </div>
+
+      <div style="font-size:13px;color:#9a9aa2;margin-bottom:8px">时间轴</div>
+      <div class="track">
+        <div class="clip">片段 1</div>
+        <div class="clip sel">片段 2</div>
+        <div class="clip">片段 3</div>
+        <div class="clip" style="flex:.6">片段 4</div>
+        <div class="playhead"></div>
+      </div>
+      <div class="tlrow">
+        <span>00:00</span>
+        <span style="display:inline-flex;gap:12px;color:#9a9aa2">
+          <i class="ti ti-scissors"></i><i class="ti ti-copy"></i><i class="ti ti-trash"></i><i class="ti ti-zoom-in"></i>
+        </span>
+        <span>00:12</span>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;margin:16px 0 10px">
+        <span style="font-size:13px;color:#9a9aa2">导出记录</span>
+        <a href="creations.html" style="font-size:12px;color:#c3b2ff">查看全部</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+        <div class="outcell"><i class="ti ti-player-play"></i></div>
+        <div class="outcell"><i class="ti ti-player-play"></i></div>
+        <div class="outcell"><i class="ti ti-player-play"></i></div>
+        <div class="outcell"><i class="ti ti-player-play"></i></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  document.querySelectorAll("[data-group]").forEach(function(g){
+    g.addEventListener("click",function(e){
+      var t=e.target.closest(".ratio,.opt"); if(!t||!g.contains(t)) return;
+      g.querySelectorAll(".ratio,.opt").forEach(function(o){o.classList.remove("on");});
+      t.classList.add("on");
+    });
+  });
+  // quick-op chips: toggle highlight (multi-select feel)
+  document.querySelectorAll('.opt-row:not([data-group]) .opt').forEach(function(o){
+    o.addEventListener("click",function(){this.classList.toggle("on");});
+  });
+</script>
+
+</body>
+</html>
