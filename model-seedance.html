@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Seedance 2.0 · 字节多参考视频模型 · LLMPORT AI</title>
+<title>Seedance 2.0 · 字节多模态视频模型(多参考·物理真实·一致性) · LLMPORT AI</title>
+<meta name="description" content="Seedance 2.0 是字节跳动新一代多模态 AI 视频模型,支持文本/图片/视频/音频参考、物理真实运动、跨帧一致性与无缝续写。在 LLMPORT 一站调用,改 host 与 key 即可迁移。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
@@ -37,70 +38,79 @@
   <main class="main">
     <div class="crumb"><a href="models.html">Models</a> / <a href="models.html">Video Models</a> / Seedance 2.0</div>
 
-    <div style="display:flex;gap:24px;align-items:flex-start;margin-bottom:32px;flex-wrap:wrap">
+    <div style="display:flex;gap:24px;align-items:flex-start;margin-bottom:36px;flex-wrap:wrap">
       <div style="flex:1;min-width:280px">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-          <h1 class="h1" style="margin:0">Seedance 2.0</h1>
-          <span class="badge">New</span>
+          <h1 class="h1" style="margin:0">Seedance 2.0</h1> <span class="badge">New</span>
         </div>
-        <p class="lead" style="margin-bottom:16px">字节跳动出品的新一代视频生成模型，支持多参考图输入与原生音视频，物理运动真实、商品保真度高，是电商与广告短视频的高性价比之选。</p>
-        <div style="display:flex;gap:6px;margin-bottom:18px">
-          <span class="tag">图生视频</span><span class="tag">多参考</span><span class="tag">原生音频</span>
-        </div>
-        <div style="display:flex;gap:12px;align-items:center">
-          <a class="cta-lg" href="create.html?model=seedance-2.0"><i class="ti ti-sparkles" style="font-size:16px"></i>用此模型创作</a>
+        <p class="lead" style="margin-bottom:16px">Seedance 2.0 是字节跳动推出的新一代<strong style="color:#fff">多模态</strong>视频生成模型,凭借超写实画质席卷全球。以文本、图片、视频与音频作为创作锚点,生成跨帧高度一致、物理真实的视频——从创意复刻到无缝续写,把电影级创作的门槛降到地板。</p>
+        <div style="display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap"><span class="tag">文生视频</span><span class="tag">图生视频</span><span class="tag">多参考</span><span class="tag">视频参考</span><span class="tag">原生音频</span></div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <a class="cta-lg" href="create.html?model=seedance-2.0"><i class="ti ti-sparkles" style="font-size:16px"></i>免费试用 Seedance 2.0</a>
           <a href="api.html" style="font-size:13px;color:#c3b2ff">通过 API 调用 →</a>
         </div>
       </div>
-      <div style="width:300px;flex-shrink:0">
-        <div class="ga wide" style="border:0.5px solid #1d1d22;background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.55)),url(https://picsum.photos/seed/1052/520/300) center/cover"><i class="ti ti-player-play" style="font-size:30px"></i></div>
+      <div style="width:320px;flex-shrink:0">
+        <div class="ga wide" style="border:0.5px solid #1d1d22;background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.45)),url(https://picsum.photos/seed/4001/520/300) center/cover"><i class="ti ti-player-play" style="font-size:30px"></i></div>
       </div>
     </div>
 
-    <div style="margin-bottom:32px">
+    <div style="margin-bottom:36px">
+      <h2 class="sec-title">核心能力</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px"><div class="vp"><i class="ti ti-stack-2"></i><div class="t">多模态参考</div><p class="d">以文本、图片(最多 9 张)、视频片段(最多 3 段)与音频作为精确创作锚点,把「靠提示词碰运气」变成真正的「导演级」控制。</p></div><div class="vp"><i class="ti ti-atom"></i><div class="t">物理真实运动</div><p class="d">重量、惯性、摩擦力被真实建模,告别角色「漂浮」「打滑」,高速运动也不再扭曲闪烁。</p></div><div class="vp"><i class="ti ti-focus-2"></i><div class="t">极致一致性</div><p class="d">角色五官、衣物纹理、产品标签文字跨镜头零漂移,多镜头剪在一起也无视觉割裂。</p></div><div class="vp"><i class="ti ti-copy"></i><div class="t">创意复刻</div><p class="d">从参考片中提取运镜、节奏与转场,复现专业级 VFX,不需要好莱坞预算或专业术语。</p></div><div class="vp"><i class="ti ti-clapperboard"></i><div class="t">剧本/分镜理解</div><p class="d">读懂分镜与镜头语言(广角/特写、光影氛围、叙事逻辑),生成连贯的多镜头序列。</p></div><div class="vp"><i class="ti ti-arrows-horizontal"></i><div class="t">无缝续写</div><p class="d">分析已有片段,环境与角色连续地向前延展剧情,补全高潮前后的镜头。</p></div></div>
+    </div>
+
+    <div style="margin-bottom:36px">
       <h2 class="sec-title">能力规格</h2>
       <div class="specs">
         <div class="spec"><div class="k">最高分辨率</div><div class="v">1080p</div></div>
         <div class="spec"><div class="k">时长</div><div class="v">5s / 10s</div></div>
-        <div class="spec"><div class="k">输入模式</div><div class="v">文生 · 图生 · 多参考</div></div>
-        <div class="spec"><div class="k">原生音频</div><div class="v">支持</div></div>
-        <div class="spec"><div class="k">画面比例</div><div class="v">16:9 · 9:16 · 1:1</div></div>
+        <div class="spec"><div class="k">输入模式</div><div class="v">文生 · 图生 · 多参考 · 视频/音频参考</div></div>
+        <div class="spec"><div class="k">参考上限</div><div class="v">图片 ≤9 张 · 视频 ≤3 段</div></div>
+        <div class="spec"><div class="k">原生音频</div><div class="v">支持 · 多语言配音</div></div>
         <div class="spec"><div class="k">起价</div><div class="v" style="color:#c3b2ff">$0.07 / 秒</div></div>
       </div>
     </div>
 
-    <div style="margin-bottom:32px">
-      <h2 class="sec-title">效果示例</h2>
-      <div class="gallery">
-        <div class="ga" style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.55)),url(https://picsum.photos/seed/1053/300/520) center/cover"><i class="ti ti-player-play"></i></div>
-        <div class="ga" style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.55)),url(https://picsum.photos/seed/1054/300/520) center/cover"><i class="ti ti-player-play"></i></div>
-        <div class="ga" style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.55)),url(https://picsum.photos/seed/1055/300/520) center/cover"><i class="ti ti-player-play"></i></div>
-        <div class="ga" style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.55)),url(https://picsum.photos/seed/1056/300/520) center/cover"><i class="ti ti-player-play"></i></div>
-      </div>
+    <div style="margin-bottom:36px">
+      <h2 class="sec-title">社区作品</h2>
+      <p class="lead" style="margin-bottom:14px">来自社区的 Seedance 2.0 实拍效果(示例占位)。</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px"><div class="ga" style="aspect-ratio:16/9;background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/4100/520/300) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i></div><div class="ga" style="aspect-ratio:16/9;background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/4101/520/300) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i></div><div class="ga" style="aspect-ratio:16/9;background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/4102/520/300) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i></div><div class="ga" style="aspect-ratio:16/9;background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/4103/520/300) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i></div><div class="ga" style="aspect-ratio:16/9;background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/4104/520/300) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i></div><div class="ga" style="aspect-ratio:16/9;background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/4105/520/300) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i></div><div class="ga" style="aspect-ratio:16/9;background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/4106/520/300) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i></div><div class="ga" style="aspect-ratio:16/9;background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/4107/520/300) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i></div></div>
     </div>
 
-    <div style="margin-bottom:32px">
-      <h2 class="sec-title">适合做什么</h2>
-      <div class="steps">
-        <div class="step"><div class="n"><i class="ti ti-shopping-bag" style="font-size:15px"></i></div><div class="st">电商商品视频</div><div class="sd">用商品图生成可投放的短视频，物体与文字保真度高。</div></div>
-        <div class="step"><div class="n"><i class="ti ti-photo" style="font-size:15px"></i></div><div class="st">多参考一致性</div><div class="sd">传入多张参考图，锁定角色 / 场景 / 风格的一致性。</div></div>
-        <div class="step"><div class="n"><i class="ti ti-volume" style="font-size:15px"></i></div><div class="st">带声成片</div><div class="sd">原生音视频，一步产出带音效 / 环境声的成片。</div></div>
-      </div>
+    <div style="margin-bottom:36px">
+      <h2 class="sec-title">三步开始</h2>
+      <div class="steps"><div class="step"><div class="n">1</div><div class="st">选择 Seedance 2.0</div><div class="sd">进入创作台,在模型里选 Seedance 2.0(或 Fast 档)。</div></div><div class="step"><div class="n">2</div><div class="st">给出创意与参考</div><div class="sd">写一句结构化提示词,或上传图片 / 片段 / 音频作为锚点。</div></div><div class="step"><div class="n">3</div><div class="st">设定并生成</div><div class="sd">选时长、比例、分辨率,点击生成,几十秒拿到成片。</div></div></div>
     </div>
 
-    <div style="margin-bottom:34px">
+    <div style="margin-bottom:36px">
+      <h2 class="sec-title">谁在用</h2>
+      <div class="steps"><div class="step"><div class="n"><i class="ti ti-device-tv" style="font-size:15px"></i></div><div class="st">内容创作者 & 营销</div><div class="sd">为广告、社媒与产品演示批量产出视觉一致、音画同步的成片。</div></div><div class="step"><div class="n"><i class="ti ti-movie" style="font-size:15px"></i></div><div class="st">影视 & 剪辑</div><div class="sd">搭建电影级场景,测试运镜,跨镜头保持角色与构图一致。</div></div><div class="step"><div class="n"><i class="ti ti-palette" style="font-size:15px"></i></div><div class="st">动效 & 动画设计</div><div class="sd">快速打样动画、生成分镜、探索多种视觉风格与场景调度。</div></div></div>
+    </div>
+
+    <div style="margin-bottom:36px">
+      <div class="sec-head"><h2>深入了解 Seedance 2.0</h2><a href="#">全部文章 →</a></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px"><a class="fcard" href="#"><i class="ti ti-book-2"></i><div class="ft">Seedance 2.0 完整指南</div><p class="fd">从多模态原理到全部玩法,一篇讲透。</p></a><a class="fcard" href="#"><i class="ti ti-school"></i><div class="ft">上手教程</div><p class="fd">Step-by-step 教你跑通第一条视频。</p></a><a class="fcard" href="#"><i class="ti ti-bulb"></i><div class="ft">提示词指南</div><p class="fd">结构化 prompt 模板与真实范例。</p></a><a class="fcard" href="#"><i class="ti ti-star"></i><div class="ft">上手评测</div><p class="fd">实测物理真实度、一致性与续写表现。</p></a><a class="fcard" href="#"><i class="ti ti-versions"></i><div class="ft">模型对比</div><p class="fd">Seedance 2.0 对比 Kling / Veo / Sora。</p></a><a class="fcard" href="#"><i class="ti ti-photo"></i><div class="ft">案例库</div><p class="fd">电商、短剧、广告的可复现配方。</p></a></div>
+    </div>
+
+    <div style="margin-bottom:36px">
+      <h2 class="sec-title">社媒热度</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px"><a class="fcard" href="#"><i class="ti ti-brand-x"></i><div class="ft">X / Twitter</div><p class="fd">看创作者怎么玩 Seedance 2.0 →</p></a><a class="fcard" href="#"><i class="ti ti-brand-youtube"></i><div class="ft">YouTube</div><p class="fd">教程与效果实拍合集 →</p></a><a class="fcard" href="#"><i class="ti ti-brand-tiktok"></i><div class="ft">TikTok</div><p class="fd">#Seedance2 爆款短视频 →</p></a><a class="fcard" href="#"><i class="ti ti-brand-reddit"></i><div class="ft">Reddit</div><p class="fd">社区讨论与 prompt 分享 →</p></a></div>
+    </div>
+
+    <div style="margin-bottom:36px">
+      <div class="sec-head"><h2>相关模型</h2><a href="models.html">全部模型 →</a></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px"><a class="mcard" href="model-hailuo.html"><div class="nm">Hailuo 02</div><div class="ds">MiniMax · 1080p 高清与稳定动态。</div><div style="display:flex;gap:6px"><span class="tag">文生视频</span><span class="tag">图生视频</span></div><div class="pr">查看详情 →</div></a><a class="mcard" href="model-kling.html"><div class="nm">Kling 3.0</div><div class="ds">快手 · 电影级运动与高遵循度。</div><div style="display:flex;gap:6px"><span class="tag">文生视频</span><span class="tag">图生视频</span></div><div class="pr">查看详情 →</div></a><a class="mcard" href="model-veo.html"><div class="nm">Veo 3.1</div><div class="ds">Google · 原生音画同步。</div><div style="display:flex;gap:6px"><span class="tag">文生视频</span><span class="tag">音频</span></div><div class="pr">查看详情 →</div></a><a class="mcard" href="model-sora.html"><div class="nm">Sora 2</div><div class="ds">OpenAI · 多镜头叙事一致性。</div><div style="display:flex;gap:6px"><span class="tag">文生视频</span></div><div class="pr">查看详情 →</div></a></div>
+    </div>
+
+    <div style="margin-bottom:36px">
       <h2 class="sec-title">常见问题</h2>
-      <div class="faq">
-        <div class="q">Seedance 2.0 和 Kling、Veo 有什么区别？<i class="ti ti-chevron-down"></i></div>
-        <div class="q">支持几张参考图？<i class="ti ti-chevron-down"></i></div>
-        <div class="q">计费怎么算？<i class="ti ti-chevron-down"></i></div>
-        <div class="q">可以用 API 调用吗？<i class="ti ti-chevron-down"></i></div>
-      </div>
+      <div class="faq"><div class="q">Seedance 2.0 是什么,谁出品的?<i class="ti ti-chevron-down"></i></div><div class="q">它和 Kling、Veo、Sora 有什么区别?<i class="ti ti-chevron-down"></i></div><div class="q">支持哪些输入?最多能传几张参考图、几段视频?<i class="ti ti-chevron-down"></i></div><div class="q">能保持角色和产品在多镜头里一致吗?<i class="ti ti-chevron-down"></i></div><div class="q">支持原生音频和多语言配音吗?<i class="ti ti-chevron-down"></i></div><div class="q">可以续写 / 延长已有视频吗?<i class="ti ti-chevron-down"></i></div><div class="q">计费怎么算,失败会扣费吗?<i class="ti ti-chevron-down"></i></div><div class="q">可以通过 API 调用吗?<i class="ti ti-chevron-down"></i></div></div>
     </div>
 
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:#121215;border:0.5px solid #1d1d22;border-radius:12px">
-      <div style="font-size:15px;font-weight:500">准备好用 Seedance 2.0 创作了吗？</div>
-      <a class="cta-lg" href="create.html?model=seedance-2.0"><i class="ti ti-sparkles" style="font-size:16px"></i>用此模型创作</a>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:#121215;border:0.5px solid #1d1d22;border-radius:12px;flex-wrap:wrap;gap:12px">
+      <div style="font-size:15px;font-weight:500">准备好用 Seedance 2.0 创作了吗?</div>
+      <a class="cta-lg" href="create.html?model=seedance-2.0"><i class="ti ti-sparkles" style="font-size:16px"></i>免费试用 Seedance 2.0</a>
     </div>
   </main>
 </div>
