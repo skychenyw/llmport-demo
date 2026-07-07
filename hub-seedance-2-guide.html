@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seedance 2.0 完整指南:多模态视频生成怎么玩 · LLMPORT AI</title>
+<meta name="description" content="Seedance 2.0 完整指南:字节跳动多模态视频模型的核心能力、上手步骤、提示词技巧与 API 接入方式。多参考输入、物理真实、跨帧一致、无缝续写一文讲透。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="wm" style="font-size:19px">LLMPORT</span><span class="wm" style="font-size:12px;color:#6E3AFF;font-weight:600">.ai</span></a>
+  <nav class="topnav">
+    <a href="models.html">Models</a><a href="tools.html">Tools</a><a href="api-platform.html">API</a><a href="pricing.html">Pricing</a><a href="docs.html">Docs</a><a href="hub.html" class="on">资源</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:12px;font-size:13px">
+    <a data-auth="guest" href="login.html">Login</a><a class="pill" data-auth="guest" href="login.html">Start for Free</a><a class="avatar" data-auth="user" href="account.html" style="text-decoration:none;display:none">L</a>
+  </div>
+</header>
+
+<div class="art-head">
+  <div class="crumb"><a href="hub.html">资源</a> / <a href="hub.html">模型指南</a> / Seedance 2.0 完整指南</div>
+  <span class="acat" style="margin-top:6px">模型指南</span>
+  <h1 class="h1" style="margin:8px 0 10px;max-width:760px">Seedance 2.0 完整指南:多模态视频生成怎么玩</h1>
+  <div style="font-size:13px;color:#6b6b72;margin-bottom:16px">LLMPORT 团队 · 2026-06 · 10 分钟阅读</div>
+  <div class="pimg" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5100/960/540) center/cover;max-width:960px;margin:0"></div>
+</div>
+
+<div class="article">
+  <div class="body">
+    <div class="prose">
+      <p>Seedance 2.0 是字节跳动推出的新一代<strong>多模态</strong>视频生成模型。和上一代相比,它最大的变化是把"靠提示词碰运气"变成了真正的<strong>导演级控制</strong>——你可以同时用文本、图片、视频片段和音频作为创作锚点,生成跨帧高度一致、物理真实的视频。这篇指南会把它的核心能力、上手步骤、提示词技巧和接入方式一次讲清。</p>
+
+      <h2 id="intro">什么是 Seedance 2.0</h2>
+      <p>简单说,Seedance 2.0 是一个"听得懂复杂指令"的视频模型。它擅长在多镜头之间保持角色、产品和文字的一致性,运动符合真实物理,还能基于已有片段无缝续写。对创作者而言,这意味着更少的反复重抽、更接近"一次成片"。</p>
+      <div class="pimg" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5110/960/540) center/cover"></div>
+
+      <h2 id="features">六大核心能力</h2>
+      <h3>1. 多模态参考</h3>
+      <p>以文本、图片(最多 9 张)、视频片段(最多 3 段)与音频作为精确锚点。你不再只能"描述",而是可以"给样例"——把想要的角色、风格、运镜直接喂给模型。</p>
+      <h3>2. 物理真实运动</h3>
+      <p>重量、惯性、摩擦力被真实建模,告别角色"漂浮""打滑",高速运动也不再扭曲闪烁。</p>
+      <h3>3. 极致一致性</h3>
+      <p>角色五官、衣物纹理、产品标签文字跨镜头零漂移,多镜头剪在一起也不会出现视觉割裂。这对电商和品牌内容尤其关键。</p>
+      <h3>4. 创意复刻</h3>
+      <p>从一段参考片里提取运镜、节奏与转场,复现专业级 VFX,不需要好莱坞预算或专业术语。</p>
+      <h3>5. 剧本 / 分镜理解</h3>
+      <p>读懂分镜与镜头语言(广角/特写、光影氛围、叙事逻辑),生成连贯的多镜头序列。</p>
+      <h3>6. 无缝续写</h3>
+      <p>分析已有片段,让环境与角色连续地向前延展剧情,补全高潮前后的镜头。</p>
+
+      <h2 id="quickstart">三步快速上手</h2>
+      <p>在 LLMPORT 上跑通第一条 Seedance 2.0 视频,只要三步:</p>
+      <ul>
+        <li><strong>选择模型</strong>:进入创作台,在模型里选 Seedance 2.0(或更便宜更快的 Fast 档)。</li>
+        <li><strong>给出创意与参考</strong>:写一句结构化提示词,或上传图片 / 片段 / 音频作为锚点。</li>
+        <li><strong>设定并生成</strong>:选时长、比例与分辨率,点击生成,几十秒拿到成片。</li>
+      </ul>
+
+      <h2 id="prompting">提示词技巧</h2>
+      <p>一个稳定好用的结构是:<code>主体 + 动作 + 场景 + 镜头 + 光影 + 风格</code>。例如:</p>
+      <p><code>一瓶精华液在大理石台面上缓慢旋转,柔和影棚布光,浅景深虚化背景,微距特写,高级化妆品广告质感</code>。</p>
+      <p>几条经验:把最重要的元素放在前面;用参考图锁定角色/产品比纯文字更稳;需要一致性时,跨镜头复用同一组参考;想要某种运镜,直接描述镜头(推、拉、环绕)或上传参考片。</p>
+
+      <h2 id="usecases">适合谁、能做什么</h2>
+      <p>Seedance 2.0 对这几类人尤其友好:</p>
+      <ul>
+        <li><strong>内容创作者 & 营销</strong>:批量产出视觉一致、音画同步的广告与社媒短视频。</li>
+        <li><strong>电商 & 带货团队</strong>:商品图转可投放的 9:16 成片,保持产品与文字保真。</li>
+        <li><strong>影视 & 剪辑</strong>:搭建电影级场景、测试运镜、跨镜头保持一致。</li>
+      </ul>
+
+      <h2 id="pricing-api">计费与 API 接入</h2>
+      <p>Seedance 2.0 按输出秒数计费、失败不扣费,起价低至 <strong>$0.07 / 秒</strong>。开发者可以通过统一的、兼容主流协议的 API 接入——从现有平台迁移通常只需更换 host 与 key。详见 <a href="docs.html">开发者文档</a> 与 <a href="api-platform.html">API 平台</a>。</p>
+
+      <h2 id="faq">常见问题</h2>
+      <h3>Seedance 2.0 和 Kling / Veo / Sora 有什么区别?</h3>
+      <p>它的差异点在"多模态参考 + 一致性 + 续写"。如果你的内容强依赖角色/产品跨镜头一致,或想用参考片复刻运镜,Seedance 2.0 往往更省心。</p>
+      <h3>最多能传几张参考图、几段视频?</h3>
+      <p>图片最多 9 张,视频片段最多 3 段,可与文本、音频组合使用。</p>
+      <h3>可以续写已有视频吗?</h3>
+      <p>可以。模型会分析已有片段并连续地向前延展剧情。</p>
+
+      <div class="cta-banner" style="margin-top:30px">
+        <div style="font-size:20px;font-weight:500;margin-bottom:8px">动手试试 Seedance 2.0</div>
+        <p class="lead" style="margin:0 auto 18px;max-width:420px">免费额度即开即用,几十秒出片。</p>
+        <a class="cta-lg" href="create.html?model=seedance-2.0"><i class="ti ti-sparkles" style="font-size:16px"></i>用 Seedance 2.0 创作</a>
+      </div>
+    </div>
+  </div>
+
+  <aside class="toc">
+    <h4>本文目录</h4>
+    <a href="#intro">什么是 Seedance 2.0</a>
+    <a href="#features">六大核心能力</a>
+    <a href="#quickstart">三步快速上手</a>
+    <a href="#prompting">提示词技巧</a>
+    <a href="#usecases">适合谁、能做什么</a>
+    <a href="#pricing-api">计费与 API 接入</a>
+    <a href="#faq">常见问题</a>
+  </aside>
+</div>
+
+<div class="wrap" style="padding-top:0">
+  <div class="sec-head"><h2>相关文章</h2><a href="hub.html">全部文章 →</a></div>
+  <div class="hublist" style="margin-bottom:32px"><a class="acard" href="hub-video-prompt-guide.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5103/600/360) center/cover"></div><div class="abody"><span class="acat">提示词</span><div class="atitle">如何写好 AI 视频提示词</div></div></a><a class="acard" href="hub-kling-vs-veo.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5101/600/360) center/cover"></div><div class="abody"><span class="acat">评测对比</span><div class="atitle">Kling 3.0 vs Veo 3.1 怎么选</div></div></a><a class="acard" href="docs.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5102/600/360) center/cover"></div><div class="abody"><span class="acat">使用教程</span><div class="atitle">从 fal 迁移 5 分钟教程</div></div></a></div>
+
+  <div class="sec-head"><h2>相关模型</h2><a href="models.html">全部模型 →</a></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"><a class="mcard" href="model-seedance.html"><div class="nm">Seedance 2.0</div><div class="ds">字节 · 多参考·物理真实</div><div class="pr">查看详情 →</div></a><a class="mcard" href="model-kling.html"><div class="nm">Kling 3.0</div><div class="ds">快手 · 电影级运动</div><div class="pr">查看详情 →</div></a><a class="mcard" href="model-veo.html"><div class="nm">Veo 3.1</div><div class="ds">Google · 原生音画同步</div><div class="pr">查看详情 →</div></a></div>
+</div>
+
+<footer class="footer">
+  <div class="fcols">
+    <div class="fcol">
+      <div style="display:flex;align-items:baseline;gap:2px;margin-bottom:10px"><span class="wm" style="font-size:18px">LLMPORT</span><span class="wm" style="font-size:11px;color:#6E3AFF;font-weight:600">.ai</span></div>
+      <p style="font-size:12px;color:#9a9aa2;line-height:1.7;margin:0;max-width:240px">LLMPORT AI 是一站式 AI 视频与图像生成平台,用一个 API 统一接入全球顶级模型。</p>
+    </div>
+    <div class="fcol"><h4>功能</h4><a href="create.html">创作台</a><a href="tools.html">AI 工具</a><a href="models.html">模型库</a><a href="api-platform.html">API 平台</a></div>
+    <div class="fcol"><h4>资源</h4><a href="hub.html">资源中心</a><a href="docs.html">API 文档</a><a href="hub-seedance-2-guide.html">Seedance 指南</a><a href="models.html">模型对比</a></div>
+    <div class="fcol"><h4>公司</h4><a href="pricing.html">定价</a><a href="api.html">API Console</a><a href="#">关于我们</a></div>
+  </div>
+  <div class="fbar">
+    <span>© 2026 LLMPORT AI. 保留所有权利。</span>
+    <span class="fsoc"><i class="ti ti-brand-x"></i><i class="ti ti-brand-discord"></i><i class="ti ti-brand-youtube"></i><i class="ti ti-brand-github"></i></span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

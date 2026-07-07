@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>如何写好 AI 视频提示词(附模板) · LLMPORT AI</title>
+<meta name="description" content="AI 视频提示词指南:万能公式、六要素拆解、实战范例与常见错误,帮你稳定产出有张力的成片。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="wm" style="font-size:19px">LLMPORT</span><span class="wm" style="font-size:12px;color:#6E3AFF;font-weight:600">.ai</span></a>
+  <nav class="topnav">
+    <a href="models.html">Models</a><a href="tools.html">Tools</a><a href="api-platform.html">API</a><a href="pricing.html">Pricing</a><a href="docs.html">Docs</a><a href="hub.html" class="on">资源</a>
+  </nav>
+  <div style="display:flex;align-items:center;gap:12px;font-size:13px">
+    <a data-auth="guest" href="login.html">Login</a><a class="pill" data-auth="guest" href="login.html">Start for Free</a><a class="avatar" data-auth="user" href="account.html" style="text-decoration:none;display:none">L</a>
+  </div>
+</header>
+
+<div class="art-head">
+  <div class="crumb"><a href="hub.html">资源</a> / <a href="hub.html">提示词</a> / 如何写好 AI 视频提示词(附模板)</div>
+  <span class="acat" style="margin-top:6px">提示词</span>
+  <h1 class="h1" style="margin:8px 0 10px;max-width:760px">如何写好 AI 视频提示词(附模板)</h1>
+  <div style="font-size:13px;color:#6b6b72;margin-bottom:16px">LLMPORT 团队 · 2026-06 · 8 分钟阅读</div>
+  <div class="pimg" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5103/960/540) center/cover;max-width:960px;margin:0"></div>
+</div>
+
+<div class="article">
+  <div class="body">
+    <div class="prose">
+<h2 id="why">为什么提示词重要</h2>
+<p>同样的模型,提示词写得好不好,出片质量天差地别。好的提示词能减少反复重抽、稳定风格,把"碰运气"变成"可复现"。这篇给你一套即用模板。</p>
+<h2 id="formula">万能公式</h2>
+<p>一个稳定好用的结构是:</p><p><code>主体 + 动作 + 场景 + 镜头 + 光影 + 风格</code></p><p>把最重要的元素放前面,模型对前置词更敏感。</p>
+<h2 id="elements">六要素拆解</h2>
+<ul><li><strong>主体</strong>:谁/什么(一位短发女性、一瓶精华液)。</li><li><strong>动作</strong>:在做什么(缓慢旋转、回眸、奔跑)。</li><li><strong>场景</strong>:在哪(大理石台面、雨夜街道)。</li><li><strong>镜头</strong>:景别与运镜(微距特写、环绕、推近)。</li><li><strong>光影</strong>:布光与氛围(柔和影棚光、霓虹逆光)。</li><li><strong>风格</strong>:质感与参考(高级化妆品广告、电影胶片感)。</li></ul>
+<h2 id="examples">实战范例</h2>
+<p>电商产品:</p><p><code>一瓶精华液在大理石台面上缓慢旋转,柔和影棚布光,浅景深虚化背景,微距特写,高级化妆品广告质感</code></p><p>人物镜头:</p><p><code>一位短发女性在雨夜街头回眸,霓虹逆光,浅景深,电影胶片质感,镜头缓缓推近</code></p>
+<h2 id="mistakes">常见错误</h2>
+<ul><li>堆砌形容词却没有主体动作,模型抓不到重点。</li><li>一次塞太多镜头/情节,不如拆成多段分别生成。</li><li>要一致性却每次换描述——应复用同一组参考。</li><li>忽略镜头与光影,画面就"平"。</li></ul>
+<h2 id="advanced">进阶:用参考图 / 参考片</h2>
+<p>纯文字有上限。需要锁定角色、产品或运镜时,<strong>上传参考图或参考片</strong>比堆词更稳:用参考图固定主体外观,用参考片复刻运镜与节奏。像 Seedance 2.0 这类多模态模型,支持图片(多张)、视频片段与音频一起作为锚点。</p>
+<h2 id="faq">常见问题</h2>
+<h3>需要写负向提示词吗?</h3><p>部分模型支持。把不想要的(模糊、变形、多余文字)写进负向,有助于稳定。</p><h3>中文提示词可以吗?</h3><p>可以,国产模型对中文支持很好;但具体术语(镜头、光影)写清楚比语言更重要。</p>
+
+      <div class="cta-banner" style="margin-top:30px">
+        <div style="font-size:20px;font-weight:500;margin-bottom:8px">把模板用起来</div>
+        <p class="lead" style="margin:0 auto 18px;max-width:440px">打开创作台,套用公式写第一条提示词。</p>
+        <a class="cta-lg" href="create.html"><i class="ti ti-sparkles" style="font-size:16px"></i>进入创作台</a>
+      </div>
+    </div>
+  </div>
+  <aside class="toc">
+    <h4>本文目录</h4>
+    <a href="#why">为什么提示词重要</a><a href="#formula">万能公式</a><a href="#elements">六要素拆解</a><a href="#examples">实战范例</a><a href="#mistakes">常见错误</a><a href="#advanced">进阶:用参考图 / 参考片</a><a href="#faq">常见问题</a>
+  </aside>
+</div>
+
+<div class="wrap" style="padding-top:0">
+  <div class="sec-head"><h2>相关文章</h2><a href="hub.html">全部文章 →</a></div>
+  <div class="hublist" style="margin-bottom:32px"><a class="acard" href="hub-kling-vs-veo.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5101/600/360) center/cover"></div><div class="abody"><span class="acat">评测对比</span><div class="atitle">Kling 3.0 vs Veo 3.1 怎么选</div></div></a><a class="acard" href="hub-seedance-2-guide.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5100/600/360) center/cover"></div><div class="abody"><span class="acat">模型指南</span><div class="atitle">Seedance 2.0 完整指南</div></div></a><a class="acard" href="hub-ecommerce-video.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5105/600/360) center/cover"></div><div class="abody"><span class="acat">案例</span><div class="atitle">电商短视频:批量出可投放素材</div></div></a></div>
+  <div class="sec-head"><h2>相关模型</h2><a href="models.html">全部模型 →</a></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"><a class="mcard" href="model-seedance.html"><div class="nm">Seedance 2.0</div><div class="ds">字节 · 多参考·物理真实</div><div class="pr">查看详情 →</div></a><a class="mcard" href="model-kling.html"><div class="nm">Kling 3.0</div><div class="ds">快手 · 电影级运动</div><div class="pr">查看详情 →</div></a><a class="mcard" href="model-veo.html"><div class="nm">Veo 3.1</div><div class="ds">Google · 原生音画同步</div><div class="pr">查看详情 →</div></a></div>
+</div>
+
+<footer class="footer">
+  <div class="fcols">
+    <div class="fcol">
+      <div style="display:flex;align-items:baseline;gap:2px;margin-bottom:10px"><span class="wm" style="font-size:18px">LLMPORT</span><span class="wm" style="font-size:11px;color:#6E3AFF;font-weight:600">.ai</span></div>
+      <p style="font-size:12px;color:#9a9aa2;line-height:1.7;margin:0;max-width:240px">LLMPORT AI 是一站式 AI 视频与图像生成平台,用一个 API 统一接入全球顶级模型。</p>
+    </div>
+    <div class="fcol"><h4>功能</h4><a href="create.html">创作台</a><a href="tools.html">AI 工具</a><a href="models.html">模型库</a><a href="api-platform.html">API 平台</a></div>
+    <div class="fcol"><h4>资源</h4><a href="hub.html">资源中心</a><a href="docs.html">API 文档</a><a href="hub-seedance-2-guide.html">Seedance 指南</a><a href="models.html">模型对比</a></div>
+    <div class="fcol"><h4>公司</h4><a href="pricing.html">定价</a><a href="api.html">API Console</a><a href="#">关于我们</a></div>
+  </div>
+  <div class="fbar">
+    <span>© 2026 LLMPORT AI. 保留所有权利。</span>
+    <span class="fsoc"><i class="ti ti-brand-x"></i><i class="ti ti-brand-discord"></i><i class="ti ti-brand-youtube"></i><i class="ti ti-brand-github"></i></span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

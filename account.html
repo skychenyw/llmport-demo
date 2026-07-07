@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我的账号 · LLMPORT AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css"></head>
+<body data-protected>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="wm" style="font-size:20px">LLMPORT</span><span class="wm" style="font-size:13px;color:#6E3AFF;font-weight:600">.ai</span></a>
+  <div style="display:flex;align-items:center;gap:14px">
+    <a class="credits" href="billing.html" style="text-decoration:none"><i class="ti ti-coins" style="font-size:14px;vertical-align:-2px"></i> 18,240</a>
+    <a class="pill" href="billing.html">Upgrade</a>
+    <a class="avatar" href="account.html" style="text-decoration:none">L</a>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="nav" href="index.html"><i class="ti ti-home"></i>Home</a>
+    <a class="nav" href="create.html"><i class="ti ti-sparkles"></i>Create</a>
+    <a class="nav" href="tools.html"><i class="ti ti-tool"></i>Tools</a>
+    <a class="nav" href="models.html"><i class="ti ti-box"></i>Models</a>
+    <a class="nav" href="creations.html"><i class="ti ti-folder"></i>My Creations</a>
+    <div class="sdiv"></div>
+    <div class="sgroup">Developers</div>
+    <a class="nav" href="api-platform.html"><i class="ti ti-cloud"></i>API 平台</a>
+    <a class="nav" href="api.html"><i class="ti ti-api"></i>API Console</a>
+    <a class="nav" href="docs.html"><i class="ti ti-file-text"></i>Docs</a>
+  </aside>
+  <main class="main">
+    <div class="row-between" style="margin-bottom:20px;flex-wrap:wrap;gap:12px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span class="acell" style="width:44px;height:44px;font-size:16px">L</span>
+        <div>
+          <div style="font-size:18px;font-weight:500">Larry <span class="stpill st-ok">Pro</span></div>
+          <div style="font-size:12px;color:#6b6b72">larry@llmport.ai · 会员至 2026-12</div>
+        </div>
+      </div>
+      <a class="abtn" data-action="logout" href="#"><i class="ti ti-logout"></i>退出登录</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px">
+      <div class="mc"><div class="l">积分余额</div><div class="v">18,240</div></div>
+      <div class="mc"><div class="l">本月生成</div><div class="v">486</div></div>
+      <div class="mc"><div class="l">作品数</div><div class="v">124</div></div>
+      <div class="mc"><div class="l">API 调用</div><div class="v">1,062</div></div>
+    </div>
+
+    <h2 class="sec-title">快捷入口</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px">
+      <a class="vp" href="creations.html" style="text-decoration:none"><i class="ti ti-folder"></i><div class="t">我的作品</div><p class="d">查看、下载、管理全部生成结果。</p></a>
+      <a class="vp" href="billing.html" style="text-decoration:none"><i class="ti ti-receipt"></i><div class="t">账单与积分</div><p class="d">充值、订阅、消费明细与发票。</p></a>
+      <a class="vp" data-action="enable-dev" href="api.html" style="text-decoration:none"><i class="ti ti-api"></i><div class="t">开发者 / API</div><p class="d">启用开发者模式,管理 Key、查看用量与账单。</p></a>
+    </div>
+
+    <h2 class="sec-title">最近作品</h2>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:24px"><div style="aspect-ratio:9/16;border-radius:8px;background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/7300/200/350) center/cover"></div><div style="aspect-ratio:9/16;border-radius:8px;background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/7301/200/350) center/cover"></div><div style="aspect-ratio:9/16;border-radius:8px;background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/7302/200/350) center/cover"></div><div style="aspect-ratio:9/16;border-radius:8px;background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/7303/200/350) center/cover"></div><div style="aspect-ratio:9/16;border-radius:8px;background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/7304/200/350) center/cover"></div></div>
+
+    <h2 class="sec-title">账号设置</h2>
+    <div style="border:0.5px solid #1d1d22;border-radius:12px;padding:18px;max-width:520px">
+      <div class="lbl">昵称</div>
+      <input class="inp" style="width:100%;box-sizing:border-box;margin-bottom:12px" value="Larry">
+      <div class="lbl">邮箱</div>
+      <input class="inp" style="width:100%;box-sizing:border-box;margin-bottom:12px" value="larry@llmport.ai">
+      <div class="lbl">密码</div>
+      <input class="inp" type="password" style="width:100%;box-sizing:border-box;margin-bottom:14px" value="········">
+      <span class="abtn primary"><i class="ti ti-device-floppy"></i>保存</span>
+    </div>
+  </main>
+</div>
+<script src="app.js"></script>
+</body></html>

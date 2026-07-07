@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>内容管理 · LLMPORT 管理后台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="admin.html"><span class="wm" style="font-size:20px">LLMPORT</span><span class="wm" style="font-size:13px;color:#6E3AFF;font-weight:600">.ai</span><span class="admin-tag">管理后台</span></a>
+  <div style="display:flex;align-items:center;gap:14px">
+    <span class="credits"><i class="ti ti-shield-lock" style="font-size:14px;vertical-align:-2px"></i> admin</span>
+    <span class="avatar">A</span>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="nav" href="admin.html"><i class="ti ti-layout-dashboard"></i>数据看板</a>
+    <a class="nav" href="admin-users.html"><i class="ti ti-users"></i>用户管理</a>
+    <a class="nav" href="#"><i class="ti ti-clock-hour-4"></i>生成任务</a>
+    <a class="nav" href="admin-models.html"><i class="ti ti-box"></i>模型/工具配置</a>
+    <a class="nav active" href="admin-content.html"><i class="ti ti-file-text"></i>内容管理</a>
+    <div class="sdiv"></div>
+    <div class="sgroup">运营</div>
+    <a class="nav" href="#"><i class="ti ti-receipt"></i>订单/支付</a>
+    <a class="nav" href="#"><i class="ti ti-coins"></i>积分/套餐</a>
+    <a class="nav" href="#"><i class="ti ti-shield-half"></i>风控/审核</a>
+    <a class="nav" href="#"><i class="ti ti-chart-line"></i>运营报表</a>
+    <a class="nav" href="#"><i class="ti ti-settings"></i>系统设置</a>
+  </aside>
+  <main class="main">
+    <h1 class="h1" style="margin-bottom:8px">内容管理</h1>
+    <p class="lead" style="margin-bottom:22px">营销文案、模型信息、文章、FAQ、定价展示均在此自助编辑,改动即时生效,无需改代码或重新部署。</p>
+
+    <h2 class="sec-title">首页文案</h2>
+    <div style="border:0.5px solid #1d1d22;border-radius:12px;padding:18px;margin-bottom:24px">
+      <div class="lbl">主标题</div>
+      <div class="inp" style="margin-bottom:12px">全球顶级 AI 模型,一站创作</div>
+      <div class="lbl">副标题</div>
+      <div class="inp" style="margin-bottom:12px">数十款顶级 AI 视频与图像模型,一站调用。无需逐家接入,创意即刻成片。</div>
+      <div class="lbl">顶部小标签</div>
+      <div class="inp" style="margin-bottom:14px">数十款顶级模型 · 一站生成 · 免费开始</div>
+      <span class="abtn primary"><i class="ti ti-device-floppy"></i>保存</span>
+    </div>
+
+    <div class="row-between" style="margin-bottom:6px"><h2 class="sec-title" style="margin:0">文章管理</h2><span class="abtn primary"><i class="ti ti-plus"></i>新建文章</span></div>
+    <div style="border:0.5px solid #1d1d22;border-radius:12px;overflow:hidden;margin:12px 0 24px">
+      <table class="pt" style="width:100%;border-collapse:collapse">
+        <tr><th>标题</th><th>分类</th><th>状态</th><th>更新时间</th><th>操作</th></tr>
+        <tr><td>Seedance 2.0 完整指南</td><td style="color:#9a9aa2">模型指南</td><td><span class="stpill st-ok">已发布</span></td><td style="color:#9a9aa2">2026-06-18</td><td><a class="abtn" href="#">编辑</a></td></tr><tr><td>Kling 3.0 vs Veo 3.1 怎么选</td><td style="color:#9a9aa2">评测对比</td><td><span class="stpill st-ok">已发布</span></td><td style="color:#9a9aa2">2026-06-16</td><td><a class="abtn" href="#">编辑</a></td></tr><tr><td>如何写好 AI 视频提示词</td><td style="color:#9a9aa2">提示词</td><td><span class="stpill st-ok">已发布</span></td><td style="color:#9a9aa2">2026-06-12</td><td><a class="abtn" href="#">编辑</a></td></tr><tr><td>电商短视频:批量出可投放素材</td><td style="color:#9a9aa2">案例</td><td><span class="stpill st-warn">草稿</span></td><td style="color:#9a9aa2">2026-06-20</td><td><a class="abtn" href="#">编辑</a></td></tr>
+      </table>
+    </div>
+
+    <h2 class="sec-title">FAQ 管理</h2>
+    <div style="border:0.5px solid #1d1d22;border-radius:12px;padding:4px 18px;margin-bottom:24px"><div class="cfg-row"><span>支持哪些 AI 视频和图像模型?</span><a class="abtn" href="#">编辑</a></div><div class="cfg-row"><span>生成的内容可以商用吗?</span><a class="abtn" href="#">编辑</a></div><div class="cfg-row"><span>有免费额度吗,怎么计费?</span><a class="abtn" href="#">编辑</a></div><div class="cfg-row"><span>订阅和按量充值有什么区别?</span><a class="abtn" href="#">编辑</a></div></div>
+
+    <h2 class="sec-title">其它可配置项</h2>
+    <div style="border:0.5px solid #1d1d22;border-radius:12px;padding:4px 18px">
+      <div class="cfg-row"><span>模型介绍文案(能力/规格/FAQ)</span><a class="abtn" href="admin-models.html">前往模型配置</a></div>
+      <div class="cfg-row"><span>定价展示(套餐 / 积分包)</span><a class="abtn" href="#">编辑</a></div>
+      <div class="cfg-row"><span>页脚 / 关于 / 法务页</span><a class="abtn" href="#">编辑</a></div>
+      <div class="cfg-row"><span>多语言文案(默认英语 · i18n)</span><a class="abtn" href="#">管理</a></div>
+    </div>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

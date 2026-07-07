@@ -14,10 +14,10 @@
 <header class="topbar">
   <a class="brand" href="index.html"><span class="wm" style="font-size:19px">LLMPORT</span><span class="wm" style="font-size:12px;color:#6E3AFF;font-weight:600">.ai</span></a>
   <nav class="topnav">
-    <a href="models.html">Models</a><a href="tools.html">Tools</a><a href="api-platform.html" class="on">API</a><a href="pricing.html">Pricing</a><a href="docs.html">Docs</a>
+    <a href="models.html">Models</a><a href="tools.html">Tools</a><a href="api-platform.html" class="on">API</a><a href="pricing.html">Pricing</a><a href="docs.html">Docs</a><a href="hub.html">资源</a>
   </nav>
   <div style="display:flex;align-items:center;gap:12px;font-size:13px">
-    <a href="#">Login</a><a class="pill" href="api.html">Start for Free</a>
+    <a data-auth="guest" href="login.html">Login</a><a class="pill" data-auth="guest" data-action="login-api" href="api.html">Start for Free</a><a class="avatar" data-auth="user" href="account.html" style="text-decoration:none;display:none">L</a>
   </div>
 </header>
 
@@ -27,7 +27,7 @@
   <div style="font-size:32px;font-weight:500;line-height:1.3;max-width:620px;margin:0 auto 14px">全球顶级 AI 视频与图像模型，<br>统一为一个 API</div>
   <p class="lead" style="max-width:500px;margin:0 auto 26px">用一个 key、一套 fal 兼容接口、一份英文文档，调齐 Seedance、Veo、Kling、Sora 等数十款模型。改 host 与 key 即可迁移。</p>
   <div style="display:flex;gap:12px;justify-content:center">
-    <a class="cta-lg" href="api.html"><i class="ti ti-key" style="font-size:16px"></i>试用 API</a>
+    <a class="cta-lg" data-action="login-api" href="api.html"><i class="ti ti-key" style="font-size:16px"></i>试用 API</a>
     <a href="docs.html" style="font-size:14px;border:0.5px solid #2a2a30;color:#fff;padding:11px 22px;border-radius:8px">查看文档</a>
   </div>
 </div>
@@ -100,7 +100,7 @@
     <div style="font-size:22px;font-weight:500;margin-bottom:8px">准备好接入未来的 AI 了吗？</div>
     <p class="lead" style="margin:0 auto 20px;max-width:440px">免费额度即开即用，改 host 与 key 即可开始。</p>
     <div style="display:flex;gap:12px;justify-content:center">
-      <a class="cta-lg" href="api.html">进入 API Console</a>
+      <a class="cta-lg" data-action="login-api" href="api.html">进入 API Console</a>
       <a href="docs.html" style="font-size:14px;border:0.5px solid #2a2a30;color:#fff;padding:11px 22px;border-radius:8px">查看文档</a>
     </div>
   </div>
@@ -115,7 +115,7 @@
     </div>
     <div class="fcol"><h4>功能</h4><a href="create.html">创作台</a><a href="tools.html">AI 工具</a><a href="models.html">模型库</a><a href="api-platform.html">API 平台</a></div>
     <div class="fcol"><h4>视频模型</h4><a href="model-seedance.html">Seedance 2.0</a><a href="model-veo.html">Veo 3.1</a><a href="model-kling.html">Kling 3.0</a><a href="model-sora.html">Sora 2</a><a href="models.html">更多模型</a></div>
-    <div class="fcol"><h4>开发者 / 公司</h4><a href="docs.html">API 文档</a><a href="api.html">API Console</a><a href="pricing.html">定价</a><a href="#">关于我们</a></div>
+    <div class="fcol"><h4>开发者 / 公司</h4><a href="docs.html">API 文档</a><a href="api.html">API Console</a><a href="hub.html">资源中心</a><a href="pricing.html">定价</a><a href="#">关于我们</a></div>
   </div>
   <div class="fbar">
     <span>© 2026 LLMPORT AI. 保留所有权利。</span>
@@ -124,5 +124,6 @@
   </div>
 </footer>
 
+<script src="app.js"></script>
 </body>
 </html>

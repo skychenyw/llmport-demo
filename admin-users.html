@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用户管理 · LLMPORT 管理后台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="admin.html"><span class="wm" style="font-size:20px">LLMPORT</span><span class="wm" style="font-size:13px;color:#6E3AFF;font-weight:600">.ai</span><span class="admin-tag">管理后台</span></a>
+  <div style="display:flex;align-items:center;gap:14px">
+    <span class="credits"><i class="ti ti-shield-lock" style="font-size:14px;vertical-align:-2px"></i> admin</span>
+    <span class="avatar">A</span>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="nav" href="admin.html"><i class="ti ti-layout-dashboard"></i>数据看板</a>
+    <a class="nav active" href="admin-users.html"><i class="ti ti-users"></i>用户管理</a>
+    <a class="nav" href="#"><i class="ti ti-clock-hour-4"></i>生成任务</a>
+    <a class="nav" href="admin-models.html"><i class="ti ti-box"></i>模型/工具配置</a>
+    <a class="nav" href="admin-content.html"><i class="ti ti-file-text"></i>内容管理</a>
+    <div class="sdiv"></div>
+    <div class="sgroup">运营</div>
+    <a class="nav" href="#"><i class="ti ti-receipt"></i>订单/支付</a>
+    <a class="nav" href="#"><i class="ti ti-coins"></i>积分/套餐</a>
+    <a class="nav" href="#"><i class="ti ti-shield-half"></i>风控/审核</a>
+    <a class="nav" href="#"><i class="ti ti-chart-line"></i>运营报表</a>
+    <a class="nav" href="#"><i class="ti ti-settings"></i>系统设置</a>
+  </aside>
+  <main class="main">
+    <div class="row-between" style="margin-bottom:16px">
+      <h1 class="h1" style="margin:0">用户管理</h1>
+      <span style="font-size:12px;color:#6b6b72">共 12,480 名用户</span>
+    </div>
+    <div class="filters" style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+      <div class="sel" style="min-width:220px"><span><i class="ti ti-search" style="font-size:14px"></i> 搜索用户 / 邮箱 / ID</span></div>
+      <div class="sel"><span>套餐:全部</span><i class="ti ti-chevron-down"></i></div>
+      <div class="sel"><span>状态:全部</span><i class="ti ti-chevron-down"></i></div>
+    </div>
+    <div style="border:0.5px solid #1d1d22;border-radius:12px;overflow:hidden">
+      <table class="pt" style="width:100%;border-collapse:collapse">
+        <tr><th>用户</th><th>注册</th><th>套餐</th><th>积分</th><th>累计消费</th><th>状态</th><th>操作</th></tr>
+        <tr>
+  <td><a href="admin-user-detail.html" style="display:flex;align-items:center;gap:8px;color:inherit"><span class="acell">A</span><span>Alice Chen<br><span style="font-size:11px;color:#6b6b72">alice@acme.io</span></span></a></td>
+  <td style="color:#9a9aa2">2026-03-11</td><td>Pro</td><td>8,420</td><td>$312</td>
+  <td><span class="stpill st-ok">正常</span></td>
+  <td><a class="abtn" href="admin-user-detail.html">查看</a></td></tr><tr>
+  <td><a href="admin-user-detail.html" style="display:flex;align-items:center;gap:8px;color:inherit"><span class="acell">K</span><span>Ken Watanabe<br><span style="font-size:11px;color:#6b6b72">ken@studio.jp</span></span></a></td>
+  <td style="color:#9a9aa2">2026-04-02</td><td>Scale</td><td>24,100</td><td>$1,204</td>
+  <td><span class="stpill st-ok">正常</span></td>
+  <td><a class="abtn" href="admin-user-detail.html">查看</a></td></tr><tr>
+  <td><a href="admin-user-detail.html" style="display:flex;align-items:center;gap:8px;color:inherit"><span class="acell">D</span><span>dev-team-01<br><span style="font-size:11px;color:#6b6b72">api@startup.co</span></span></a></td>
+  <td style="color:#9a9aa2">2026-02-18</td><td>API</td><td>—</td><td>$2,880</td>
+  <td><span class="stpill st-ok">正常</span></td>
+  <td><a class="abtn" href="admin-user-detail.html">查看</a></td></tr><tr>
+  <td><a href="admin-user-detail.html" style="display:flex;align-items:center;gap:8px;color:inherit"><span class="acell">M</span><span>Maria Lopez<br><span style="font-size:11px;color:#6b6b72">maria@shop.mx</span></span></a></td>
+  <td style="color:#9a9aa2">2026-05-20</td><td>Free</td><td>120</td><td>$0</td>
+  <td><span class="stpill st-warn">受限</span></td>
+  <td><a class="abtn" href="admin-user-detail.html">查看</a></td></tr><tr>
+  <td><a href="admin-user-detail.html" style="display:flex;align-items:center;gap:8px;color:inherit"><span class="acell">S</span><span>spam_user_x<br><span style="font-size:11px;color:#6b6b72">x@temp.mail</span></span></a></td>
+  <td style="color:#9a9aa2">2026-06-15</td><td>Free</td><td>0</td><td>$0</td>
+  <td><span class="stpill st-bad">已封禁</span></td>
+  <td><a class="abtn" href="admin-user-detail.html">查看</a></td></tr><tr>
+  <td><a href="admin-user-detail.html" style="display:flex;align-items:center;gap:8px;color:inherit"><span class="acell">T</span><span>Tom Baker<br><span style="font-size:11px;color:#6b6b72">tom@brandco.com</span></span></a></td>
+  <td style="color:#9a9aa2">2026-05-01</td><td>Pro</td><td>5,600</td><td>$198</td>
+  <td><span class="stpill st-ok">正常</span></td>
+  <td><a class="abtn" href="admin-user-detail.html">查看</a></td></tr>
+      </table>
+    </div>
+    <div class="row-between" style="margin-top:14px;font-size:12px;color:#6b6b72">
+      <span>第 1–6 条 / 共 12,480</span>
+      <span style="display:flex;gap:6px"><span class="abtn">上一页</span><span class="abtn primary">1</span><span class="abtn">2</span><span class="abtn">3</span><span class="abtn">下一页</span></span>
+    </div>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

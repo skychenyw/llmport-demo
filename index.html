@@ -14,10 +14,10 @@
 <header class="topbar">
   <a class="brand" href="index.html"><span class="wm" style="font-size:19px">LLMPORT</span><span class="wm" style="font-size:12px;color:#6E3AFF;font-weight:600">.ai</span></a>
   <nav class="topnav">
-    <a href="models.html">Models</a><a href="tools.html">Tools</a><a href="api-platform.html">API</a><a href="pricing.html">Pricing</a><a href="docs.html">Docs</a>
+    <a href="models.html">Models</a><a href="tools.html">Tools</a><a href="api-platform.html">API</a><a href="pricing.html">Pricing</a><a href="docs.html">Docs</a><a href="hub.html">资源</a>
   </nav>
   <div style="display:flex;align-items:center;gap:12px;font-size:13px">
-    <a href="#">Login</a><a class="pill" href="create.html">Start for Free</a>
+    <a data-auth="guest" href="login.html">Login</a><a class="pill" data-auth="guest" href="login.html">Start for Free</a><a class="avatar" data-auth="user" href="account.html" style="text-decoration:none;display:none">L</a>
   </div>
 </header>
 
@@ -50,6 +50,41 @@
   </div>
 </div>
 
+<!-- Scenarios -->
+<div class="wrap" style="padding-bottom:22px">
+  <div class="scene">
+    <div>
+      <div class="acat" style="margin-bottom:10px">Creative</div>
+      <div class="stitle">创意创作</div>
+      <p class="ssub">用顶级 AI 模型,把想法变成有张力的视频与图像——短视频、社媒内容、创意特效,一站搞定。</p>
+      <div class="schips">
+        <a class="chip" href="create.html">文生视频</a>
+        <a class="chip" href="create-image.html">AI 图像</a>
+        <a class="chip" href="create-video-to-video.html">视频转视频</a>
+        <a class="chip" href="tools.html">创意工具</a>
+      </div>
+      <a class="cta-lg" href="create.html"><i class="ti ti-sparkles" style="font-size:16px"></i>开始创作</a>
+    </div>
+    <div class="svis"><div style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/7500/400/300) center/cover"><i class="ti ti-player-play" style="font-size:22px"></i></div><div style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/7501/400/300) center/cover"><i class="ti ti-player-play" style="font-size:22px"></i></div><div style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/7502/400/300) center/cover"><i class="ti ti-player-play" style="font-size:22px"></i></div><div style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/7503/400/300) center/cover"><i class="ti ti-player-play" style="font-size:22px"></i></div></div>
+  </div>
+
+  <div class="scene">
+    <div>
+      <div class="acat" style="margin-bottom:10px">Commerce</div>
+      <div class="stitle">电商带货</div>
+      <p class="ssub">从商品图到可投放的竖版短视频——批量出素材、保持商品与文字保真,直接用于投放。</p>
+      <div class="schips">
+        <a class="chip" href="create-image.html">商品图生视频</a>
+        <a class="chip" href="tools.html">背景移除</a>
+        <a class="chip" href="create.html">9:16 竖版</a>
+        <a class="chip" href="hub-ecommerce-video.html">电商案例</a>
+      </div>
+      <a class="cta-lg" href="create.html"><i class="ti ti-shopping-bag" style="font-size:16px"></i>电商创作</a>
+    </div>
+    <div class="svis"><div style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/7520/400/300) center/cover"></div><div style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/7521/400/300) center/cover"></div><div style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/7522/400/300) center/cover"></div><div style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.5)),url(https://picsum.photos/seed/7523/400/300) center/cover"></div></div>
+  </div>
+</div>
+
 <!-- Capabilities -->
 <div class="wrap" style="padding-bottom:36px">
   <div class="sec-head"><h2>一站做齐视频与图像</h2><a href="create.html">进入创作台 →</a></div>
@@ -69,14 +104,10 @@
 <div class="wrap" style="padding-top:0;padding-bottom:36px">
   <div class="sec-head"><h2>热门工具</h2><a href="tools.html">查看全部工具 →</a></div>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
-    <a class="tcard" href="tool-video-upscaler.html"><div class="thumb" style="background:linear-gradient(rgba(8,8,10,.18),rgba(8,8,10,.5)),url(https://picsum.photos/seed/3002/300/180) center/cover"><i class="ti ti-arrows-maximize"></i></div><div class="nm">Video Upscaler</div></a>
-    <a class="tcard" href="#"><div class="thumb" style="background:linear-gradient(rgba(8,8,10,.18),rgba(8,8,10,.5)),url(https://picsum.photos/seed/3003/300/180) center/cover"><i class="ti ti-wand"></i></div><div class="nm">Video Enhancer</div></a>
-    <a class="tcard" href="#"><div class="thumb" style="background:linear-gradient(rgba(8,8,10,.18),rgba(8,8,10,.5)),url(https://picsum.photos/seed/3004/300/180) center/cover"><i class="ti ti-layers-subtract"></i></div><div class="nm">Background Remover</div></a>
-    <a class="tcard" href="#"><div class="thumb" style="background:linear-gradient(rgba(8,8,10,.18),rgba(8,8,10,.5)),url(https://picsum.photos/seed/3005/300/180) center/cover"><i class="ti ti-user-square-rounded"></i></div><div class="nm">Face Swap Video</div></a>
-    <a class="tcard" href="#"><div class="thumb" style="background:linear-gradient(rgba(8,8,10,.18),rgba(8,8,10,.5)),url(https://picsum.photos/seed/3006/300/180) center/cover"><i class="ti ti-text-decrease"></i></div><div class="nm">Subtitle Remover</div></a>
-    <a class="tcard" href="#"><div class="thumb" style="background:linear-gradient(rgba(8,8,10,.18),rgba(8,8,10,.5)),url(https://picsum.photos/seed/3007/300/180) center/cover"><i class="ti ti-microphone-2"></i></div><div class="nm">Lip Sync AI</div></a>
-    <a class="tcard" href="#"><div class="thumb" style="background:linear-gradient(rgba(8,8,10,.18),rgba(8,8,10,.5)),url(https://picsum.photos/seed/3001/300/180) center/cover"><span class="badge" style="position:absolute;top:6px;left:6px">New</span><i class="ti ti-arrows-horizontal"></i></div><div class="nm">AI Video Extender</div></a>
-    <a class="tcard" href="#"><div class="thumb" style="background:linear-gradient(rgba(8,8,10,.18),rgba(8,8,10,.5)),url(https://picsum.photos/seed/3008/300/180) center/cover"><i class="ti ti-photo-sensor"></i></div><div class="nm">Image Upscaler</div></a>
+    <a class="tcard" href="tool-video-upscaler.html"><div class="thumb" style="background:linear-gradient(rgba(8,8,10,.18),rgba(8,8,10,.5)),url(https://picsum.photos/seed/3002/300/180) center/cover"><i class="ti ti-arrows-maximize"></i></div><div class="nm">Upscaler · 放大</div></a>
+    <a class="tcard" href="tools.html"><div class="thumb" style="background:linear-gradient(rgba(8,8,10,.18),rgba(8,8,10,.5)),url(https://picsum.photos/seed/3005/300/180) center/cover"><i class="ti ti-user-square-rounded"></i></div><div class="nm">Face Swap · 换脸</div></a>
+    <a class="tcard" href="tools.html"><div class="thumb" style="background:linear-gradient(rgba(8,8,10,.18),rgba(8,8,10,.5)),url(https://picsum.photos/seed/3001/300/180) center/cover"><span class="badge" style="position:absolute;top:6px;left:6px">New</span><i class="ti ti-arrows-horizontal"></i></div><div class="nm">Video Extender · 续写</div></a>
+    <a class="tcard" href="tools.html"><div class="thumb" style="background:linear-gradient(rgba(8,8,10,.18),rgba(8,8,10,.5)),url(https://picsum.photos/seed/3004/300/180) center/cover"><i class="ti ti-layers-subtract"></i></div><div class="nm">Background Remover · 去背景</div></a>
   </div>
 </div>
 
@@ -161,7 +192,7 @@
     </div>
     <div class="fcol"><h4>功能</h4><a href="create.html">创作台</a><a href="tools.html">AI 工具</a><a href="models.html">模型库</a><a href="api-platform.html">API 平台</a></div>
     <div class="fcol"><h4>视频模型</h4><a href="model-seedance.html">Seedance 2.0</a><a href="#">Veo 3.1</a><a href="#">Kling 3.0</a><a href="#">Sora 2</a><a href="models.html">更多模型</a></div>
-    <div class="fcol"><h4>开发者 / 公司</h4><a href="api.html">API 文档</a><a href="#">MCP Server</a><a href="pricing.html">定价</a><a href="#">关于我们</a><a href="#">隐私政策</a></div>
+    <div class="fcol"><h4>开发者 / 公司</h4><a href="api.html">API 文档</a><a href="hub.html">资源中心</a><a href="#">MCP Server</a><a href="pricing.html">定价</a><a href="#">关于我们</a><a href="#">隐私政策</a></div>
   </div>
   <div class="fbar">
     <span>© 2026 LLMPORT AI. 保留所有权利。</span>
@@ -170,5 +201,6 @@
   </div>
 </footer>
 
+<script src="app.js"></script>
 </body>
 </html>

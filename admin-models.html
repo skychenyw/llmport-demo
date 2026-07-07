@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>模型工具配置 · LLMPORT 管理后台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="admin.html"><span class="wm" style="font-size:20px">LLMPORT</span><span class="wm" style="font-size:13px;color:#6E3AFF;font-weight:600">.ai</span><span class="admin-tag">管理后台</span></a>
+  <div style="display:flex;align-items:center;gap:14px">
+    <span class="credits"><i class="ti ti-shield-lock" style="font-size:14px;vertical-align:-2px"></i> admin</span>
+    <span class="avatar">A</span>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="nav" href="admin.html"><i class="ti ti-layout-dashboard"></i>数据看板</a>
+    <a class="nav" href="admin-users.html"><i class="ti ti-users"></i>用户管理</a>
+    <a class="nav" href="#"><i class="ti ti-clock-hour-4"></i>生成任务</a>
+    <a class="nav active" href="admin-models.html"><i class="ti ti-box"></i>模型/工具配置</a>
+    <a class="nav" href="admin-content.html"><i class="ti ti-file-text"></i>内容管理</a>
+    <div class="sdiv"></div>
+    <div class="sgroup">运营</div>
+    <a class="nav" href="#"><i class="ti ti-receipt"></i>订单/支付</a>
+    <a class="nav" href="#"><i class="ti ti-coins"></i>积分/套餐</a>
+    <a class="nav" href="#"><i class="ti ti-shield-half"></i>风控/审核</a>
+    <a class="nav" href="#"><i class="ti ti-chart-line"></i>运营报表</a>
+    <a class="nav" href="#"><i class="ti ti-settings"></i>系统设置</a>
+  </aside>
+  <main class="main">
+    <div class="row-between" style="margin-bottom:16px">
+      <h1 class="h1" style="margin:0">模型 / 工具配置</h1>
+      <span class="abtn primary"><i class="ti ti-plus"></i>新增</span>
+    </div>
+    <p class="lead" style="margin-bottom:16px">在此上下架模型与工具、设定零售定价、映射到网关 model_id、配置标签与免费额度。改动即时生效,无需改代码。</p>
+    <div class="atabs"><a class="on" href="#">全部</a><a href="#">视频模型</a><a href="#">图像模型</a><a href="#">工具</a></div>
+    <div style="border:0.5px solid #1d1d22;border-radius:12px;overflow:hidden">
+      <table class="pt" style="width:100%;border-collapse:collapse">
+        <tr><th>展示名</th><th>网关 model_id</th><th>类型</th><th>零售定价</th><th>免费额度</th><th>标签</th><th>状态</th><th>上/下架 · 编辑</th></tr>
+        <tr>
+  <td>Seedance 2.0</td><td class="mono">seedance/v2</td><td style="color:#9a9aa2">视频</td><td>$0.146/秒</td><td style="color:#9a9aa2">低档试用</td>
+  <td><span class="tag">New</span></td><td><span class="stpill st-ok">已上架</span></td>
+  <td style="display:flex;align-items:center;gap:10px"><span class="sw on"></span><a class="abtn" href="#">编辑</a></td></tr><tr>
+  <td>Seedance 2.0 Fast</td><td class="mono">seedance/v2-fast</td><td style="color:#9a9aa2">视频</td><td>$0.070/秒</td><td style="color:#9a9aa2">是</td>
+  <td></td><td><span class="stpill st-ok">已上架</span></td>
+  <td style="display:flex;align-items:center;gap:10px"><span class="sw on"></span><a class="abtn" href="#">编辑</a></td></tr><tr>
+  <td>Kling 3.0</td><td class="mono">kling/v2</td><td style="color:#9a9aa2">视频</td><td>$0.160/秒</td><td style="color:#9a9aa2">—</td>
+  <td></td><td><span class="stpill st-ok">已上架</span></td>
+  <td style="display:flex;align-items:center;gap:10px"><span class="sw on"></span><a class="abtn" href="#">编辑</a></td></tr><tr>
+  <td>Veo 3.1</td><td class="mono">veo/v3</td><td style="color:#9a9aa2">视频</td><td>$0.300/秒</td><td style="color:#9a9aa2">—</td>
+  <td><span class="tag">Hot</span></td><td><span class="stpill st-ok">已上架</span></td>
+  <td style="display:flex;align-items:center;gap:10px"><span class="sw on"></span><a class="abtn" href="#">编辑</a></td></tr><tr>
+  <td>Sora 2</td><td class="mono">sora/v2</td><td style="color:#9a9aa2">视频</td><td>$0.450/秒</td><td style="color:#9a9aa2">—</td>
+  <td></td><td><span class="stpill st-off">已下架</span></td>
+  <td style="display:flex;align-items:center;gap:10px"><span class="sw"></span><a class="abtn" href="#">编辑</a></td></tr><tr>
+  <td>GPT Image 2</td><td class="mono">image/gpt-image-2</td><td style="color:#9a9aa2">图像</td><td>$0.058/张</td><td style="color:#9a9aa2">是</td>
+  <td></td><td><span class="stpill st-ok">已上架</span></td>
+  <td style="display:flex;align-items:center;gap:10px"><span class="sw on"></span><a class="abtn" href="#">编辑</a></td></tr><tr>
+  <td>Nano Banana 2</td><td class="mono">image/nano-banana-2</td><td style="color:#9a9aa2">图像</td><td>$0.040/张</td><td style="color:#9a9aa2">是</td>
+  <td><span class="tag">New</span></td><td><span class="stpill st-ok">已上架</span></td>
+  <td style="display:flex;align-items:center;gap:10px"><span class="sw on"></span><a class="abtn" href="#">编辑</a></td></tr><tr>
+  <td>Video Upscaler</td><td class="mono">tool/video-upscaler</td><td style="color:#9a9aa2">工具</td><td>$0.020/秒</td><td style="color:#9a9aa2">—</td>
+  <td></td><td><span class="stpill st-ok">已上架</span></td>
+  <td style="display:flex;align-items:center;gap:10px"><span class="sw on"></span><a class="abtn" href="#">编辑</a></td></tr><tr>
+  <td>Lip Sync</td><td class="mono">tool/lip-sync</td><td style="color:#9a9aa2">工具</td><td>$0.030/秒</td><td style="color:#9a9aa2">—</td>
+  <td></td><td><span class="stpill st-off">已下架</span></td>
+  <td style="display:flex;align-items:center;gap:10px"><span class="sw"></span><a class="abtn" href="#">编辑</a></td></tr>
+      </table>
+    </div>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用户详情 · LLMPORT 管理后台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="admin.html"><span class="wm" style="font-size:20px">LLMPORT</span><span class="wm" style="font-size:13px;color:#6E3AFF;font-weight:600">.ai</span><span class="admin-tag">管理后台</span></a>
+  <div style="display:flex;align-items:center;gap:14px">
+    <span class="credits"><i class="ti ti-shield-lock" style="font-size:14px;vertical-align:-2px"></i> admin</span>
+    <span class="avatar">A</span>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="nav" href="admin.html"><i class="ti ti-layout-dashboard"></i>数据看板</a>
+    <a class="nav active" href="admin-users.html"><i class="ti ti-users"></i>用户管理</a>
+    <a class="nav" href="#"><i class="ti ti-clock-hour-4"></i>生成任务</a>
+    <a class="nav" href="admin-models.html"><i class="ti ti-box"></i>模型/工具配置</a>
+    <a class="nav" href="admin-content.html"><i class="ti ti-file-text"></i>内容管理</a>
+    <div class="sdiv"></div>
+    <div class="sgroup">运营</div>
+    <a class="nav" href="#"><i class="ti ti-receipt"></i>订单/支付</a>
+    <a class="nav" href="#"><i class="ti ti-coins"></i>积分/套餐</a>
+    <a class="nav" href="#"><i class="ti ti-shield-half"></i>风控/审核</a>
+    <a class="nav" href="#"><i class="ti ti-chart-line"></i>运营报表</a>
+    <a class="nav" href="#"><i class="ti ti-settings"></i>系统设置</a>
+  </aside>
+  <main class="main">
+    <div class="crumb"><a href="admin-users.html">用户管理</a> / Alice Chen</div>
+    <div class="row-between" style="margin:8px 0 20px;flex-wrap:wrap;gap:12px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span class="acell" style="width:44px;height:44px;font-size:16px">A</span>
+        <div>
+          <div style="font-size:18px;font-weight:500">Alice Chen <span class="stpill st-ok">正常</span></div>
+          <div style="font-size:12px;color:#6b6b72">alice@acme.io · ID u_10241 · Pro 套餐 · 注册于 2026-03-11</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <span class="abtn"><i class="ti ti-coin"></i>调整积分</span>
+        <span class="abtn"><i class="ti ti-key"></i>重置 API Key</span>
+        <span class="abtn danger"><i class="ti ti-ban"></i>封禁</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px">
+      <div class="mc"><div class="l">积分余额</div><div class="v">8,420</div></div>
+      <div class="mc"><div class="l">累计消费</div><div class="v">$312</div></div>
+      <div class="mc"><div class="l">生成数</div><div class="v">486</div></div>
+      <div class="mc"><div class="l">API 调用</div><div class="v">1,204</div></div>
+    </div>
+    <div class="atabs"><a class="on" href="#">作品</a><a href="#">API 调用</a><a href="#">积分流水</a></div>
+    <h2 class="sec-title">最近作品</h2>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:24px"><div style="aspect-ratio:9/16;border-radius:8px;background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/7000/200/350) center/cover"></div><div style="aspect-ratio:9/16;border-radius:8px;background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/7001/200/350) center/cover"></div><div style="aspect-ratio:9/16;border-radius:8px;background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/7002/200/350) center/cover"></div><div style="aspect-ratio:9/16;border-radius:8px;background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/7003/200/350) center/cover"></div><div style="aspect-ratio:9/16;border-radius:8px;background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/7004/200/350) center/cover"></div><div style="aspect-ratio:9/16;border-radius:8px;background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/7005/200/350) center/cover"></div></div>
+    <h2 class="sec-title">积分流水</h2>
+    <div style="border:0.5px solid #1d1d22;border-radius:12px;overflow:hidden">
+      <table class="pt" style="width:100%;border-collapse:collapse">
+        <tr><th>时间</th><th>类型</th><th>变动</th><th>余额</th><th>说明</th></tr>
+        <tr><td style="color:#9a9aa2">2026-06-20 14:22</td><td>消费</td><td style="color:#e08a8a">-24</td><td>8,420</td><td style="color:#9a9aa2">Kling 3.0 · 5s 视频</td></tr><tr><td style="color:#9a9aa2">2026-06-20 10:05</td><td>消费</td><td style="color:#e08a8a">-6</td><td>8,444</td><td style="color:#9a9aa2">GPT Image 2 · 1 张</td></tr><tr><td style="color:#9a9aa2">2026-06-18 09:30</td><td>充值</td><td style="color:#7ee0a0">+5,000</td><td>8,450</td><td style="color:#9a9aa2">积分包 5,000</td></tr><tr><td style="color:#9a9aa2">2026-06-15 20:11</td><td>消费</td><td style="color:#e08a8a">-48</td><td>3,450</td><td style="color:#9a9aa2">Seedance 2.0 · 10s</td></tr><tr><td style="color:#9a9aa2">2026-06-15 20:09</td><td>退回</td><td style="color:#7ee0a0">+24</td><td>3,498</td><td style="color:#9a9aa2">生成失败 · 自动退回</td></tr>
+      </table>
+    </div>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

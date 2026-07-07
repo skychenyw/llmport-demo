@@ -16,7 +16,7 @@
   <div style="display:flex;align-items:center;gap:14px">
     <span class="credits"><i class="ti ti-coins" style="font-size:14px;vertical-align:-2px"></i> 18,240</span>
     <a class="pill" href="pricing.html">Upgrade</a>
-    <span class="avatar">L</span>
+    <a class="avatar" href="account.html" style="text-decoration:none">L</a>
   </div>
 </header>
 
@@ -35,8 +35,8 @@
   </aside>
 
   <main class="main">
-    <div class="tabs"><span class="on">Video Models</span><span>Image Models</span></div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+    <div class="tabs"><span class="on" data-tabbtn="video">Video Models</span><span data-tabbtn="image">Image Models</span></div>
+    <div data-tab="video"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
       <a class="mcard" href="model-seedance.html"><div class="nm">Seedance 2.0 <span class="badge">New</span></div><div class="ds">字节 · 多参考·物理真实</div><div style="display:flex;gap:6px"><span class="tag">图生视频</span><span class="tag">参考</span></div><div class="pr">起价 $0.07 / 秒 · 点击查看详情</div></a>
       <a class="mcard" href="model-veo.html"><div class="nm">Veo 3.1 <span class="badge">Hot</span></div><div class="ds">Google · 原生音画同步</div><div style="display:flex;gap:6px"><span class="tag">文生视频</span><span class="tag">图生视频</span></div><div class="pr">起价 $0.30 / 秒</div></a>
       <a class="mcard" href="model-sora.html"><div class="nm">Sora 2</div><div class="ds">OpenAI · 多镜头一致性</div><div style="display:flex;gap:6px"><span class="tag">文生视频</span></div><div class="pr">起价 $0.45 / 秒</div></a>
@@ -46,9 +46,25 @@
       <a class="mcard" href="model-vidu.html"><div class="nm">Vidu Q3</div><div class="ds">生数 · 音画合成</div><div style="display:flex;gap:6px"><span class="tag">文生视频</span><span class="tag">参考</span></div><div class="pr">起价 $0.10 / 秒</div></a>
       <a class="mcard" href="model-luma.html"><div class="nm">Luma Ray 2</div><div class="ds">Luma · 细腻动效</div><div style="display:flex;gap:6px"><span class="tag">文生视频</span></div><div class="pr">起价 $0.14 / 秒</div></a>
       <a class="mcard" href="#" style="display:flex;align-items:center;justify-content:center;color:#7f7f88;font-size:13px;border-style:dashed">查看全部 27+ →</a>
-    </div>
+    </div></div>
+    <div data-tab="image" style="display:none"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <a class="mcard" href="model-gpt-image.html"><div class="nm">GPT Image 2 <span class="badge">Hot</span></div><div class="ds">OpenAI · 文字渲染精准</div><div style="display:flex;gap:6px"><span class="tag">文生图</span><span class="tag">图生图</span><span class="tag">局部编辑</span></div><div class="pr">起价 $0.058 / 张</div></a>
+      <a class="mcard" href="model-nano-banana.html"><div class="nm">Nano Banana 2 <span class="badge">New</span></div><div class="ds">Google · 高保真·一致性</div><div style="display:flex;gap:6px"><span class="tag">文生图</span><span class="tag">图生图</span></div><div class="pr">起价 $0.04 / 张</div></a>
+      <a class="mcard" href="#" style="display:flex;align-items:center;justify-content:center;color:#7f7f88;font-size:13px;border-style:dashed">更多图像模型 →</a>
+    </div></div>
   </main>
 </div>
 
+<script>
+document.querySelectorAll('[data-tabbtn]').forEach(function(b){
+  b.style.cursor='pointer';
+  b.addEventListener('click',function(){
+    var t=b.getAttribute('data-tabbtn');
+    document.querySelectorAll('[data-tabbtn]').forEach(function(x){x.classList.toggle('on',x===b);});
+    document.querySelectorAll('[data-tab]').forEach(function(g){g.style.display=(g.getAttribute('data-tab')===t)?'':'none';});
+  });
+});
+</script>
+<script src="app.js"></script>
 </body>
 </html>
