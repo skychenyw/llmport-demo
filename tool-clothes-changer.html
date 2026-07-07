@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 换装 / Clothes Changer · 一键生成模特上身图 · LLMPORT AI</title>
+<meta name="description" content="AI 换装工具:上传模特图与服装图,一键生成模特上身效果图。为服装电商、独立站与带货省去反复拍摄,保持版型与面料质感,支持批量出图与商用。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="wm" style="font-size:20px">LLMPORT</span><span class="wm" style="font-size:13px;color:#6E3AFF;font-weight:600">.ai</span></a>
+  <div style="display:flex;align-items:center;gap:14px">
+    <span class="credits"><i class="ti ti-coins" style="font-size:14px;vertical-align:-2px"></i> 18,240</span>
+    <a class="pill" href="pricing.html">Upgrade</a>
+    <a class="avatar" href="account.html" style="text-decoration:none">L</a>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="nav" href="index.html"><i class="ti ti-home"></i>Home</a>
+    <a class="nav" href="create.html"><i class="ti ti-sparkles"></i>Create</a>
+    <a class="nav active" href="tools.html"><i class="ti ti-tool"></i>Tools</a>
+    <a class="nav" href="models.html"><i class="ti ti-box"></i>Models</a>
+    <a class="nav" href="creations.html"><i class="ti ti-folder"></i>My Creations</a>
+    <div class="sdiv"></div>
+    <div class="sgroup">Developers</div>
+    <a class="nav" href="api-platform.html"><i class="ti ti-cloud"></i>API 平台</a>
+    <a class="nav" href="api.html"><i class="ti ti-api"></i>API Console</a>
+    <a class="nav" href="docs.html"><i class="ti ti-file-text"></i>Docs</a>
+  </aside>
+
+  <main class="main">
+    <div class="crumb"><a href="tools.html">Tools</a> / <a href="tools.html">Image Tools</a> / Clothes Changer</div>
+
+    <div style="text-align:center;max-width:620px;margin:6px auto 22px">
+      <h1 class="h1">AI 换装 / Clothes Changer</h1>
+      <p class="lead">上传模特图与服装图,AI 一键让模特换上你的商品服饰——快速产出上身效果图,省去反复约拍。适合服装电商、独立站与带货,保持版型与面料质感,支持批量出图与商用。</p>
+    </div>
+
+    <div style="display:flex;gap:16px;border:0.5px solid #1d1d22;border-radius:14px;background:#0e0e11;padding:16px;margin-bottom:34px;flex-wrap:wrap">
+      <div style="width:300px;flex-shrink:0">
+        <div class="lbl">模特 / 人物图</div>
+        <div class="uploader" style="margin-bottom:12px"><i class="ti ti-user"></i>上传模特图<div style="font-size:11px;color:#6b6b72;margin-top:6px">JPG / PNG · ≤ 20MB</div></div>
+        <div class="lbl">服装图</div>
+        <div class="uploader" style="margin-bottom:14px"><i class="ti ti-shirt"></i>上传服装 / 商品图<div style="font-size:11px;color:#6b6b72;margin-top:6px">白底商品图效果最佳</div></div>
+        <div class="lbl">服装类别</div>
+        <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">
+          <span style="font-size:12px;padding:7px 12px;border-radius:8px;background:#6E3AFF;color:#fff">上装</span>
+          <span style="font-size:12px;padding:7px 12px;border-radius:8px;border:0.5px solid #2a2a30;color:#9a9aa2">下装</span>
+          <span style="font-size:12px;padding:7px 12px;border-radius:8px;border:0.5px solid #2a2a30;color:#9a9aa2">连衣裙</span>
+          <span style="font-size:12px;padding:7px 12px;border-radius:8px;border:0.5px solid #2a2a30;color:#9a9aa2">整套</span>
+        </div>
+        <div class="lbl">贴合度</div>
+        <div class="sel" style="margin-bottom:18px"><span>标准(保留版型)</span><i class="ti ti-chevron-down"></i></div>
+        <button class="btn-primary" style="width:100%;padding:11px;font-size:14px"><i class="ti ti-sparkles" style="font-size:16px;vertical-align:-2px;margin-right:4px"></i>生成上身图 · 消耗 6 Credits</button>
+      </div>
+      <div style="flex:1;min-width:280px">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:10px;height:100%">
+          <div style="background:#161619;border:0.5px solid #1d1d22;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#5c5c64;font-size:12px;min-height:300px"><i class="ti ti-user" style="font-size:26px;margin-bottom:8px"></i>模特图</div>
+          <div style="background:#161619;border:0.5px solid #1d1d22;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#5c5c64;font-size:12px;min-height:300px"><i class="ti ti-shirt" style="font-size:26px;margin-bottom:8px"></i>服装图</div>
+          <div style="background:#161619;border:0.5px solid rgba(110,60,255,.4);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#c3b2ff;font-size:12px;min-height:300px"><i class="ti ti-sparkles" style="font-size:26px;margin-bottom:8px"></i>换装结果</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:34px">
+      <h2 class="sec-title">三步搞定</h2>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div class="st">上传模特图</div><div class="sd">选一张模特或人物照片,正面、清晰效果最佳。</div></div>
+        <div class="step"><div class="n">2</div><div class="st">上传服装图</div><div class="sd">上传你的商品服饰(白底商品图最佳),选类别。</div></div>
+        <div class="step"><div class="n">3</div><div class="st">生成并下载</div><div class="sd">一键生成上身效果图,批量替换模特或服装,直接下载。</div></div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:34px">
+      <h2 class="sec-title">为什么用它</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <div class="vp"><i class="ti ti-coin"></i><div class="t">省拍摄成本</div><p class="d">无需约模特、租场地,一张图就能出上身效果,大幅降低成本。</p></div>
+        <div class="vp"><i class="ti ti-stack-2"></i><div class="t">批量上身图</div><p class="d">同一模特换多款服饰、或一款服饰换多个模特,快速铺满 SKU。</p></div>
+        <div class="vp"><i class="ti ti-focus-2"></i><div class="t">保持商品保真</div><p class="d">尽量还原版型、面料与图案细节,贴近真实穿着效果。</p></div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:34px">
+      <h2 class="sec-title">适合谁</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+        <div class="vp"><i class="ti ti-shopping-bag"></i><div class="t">服装电商 / 独立站</div><p class="d">批量产出商品上身图,提升详情页与主图转化。</p></div>
+        <div class="vp"><i class="ti ti-device-tv"></i><div class="t">带货 / 达人</div><p class="d">快速做多套穿搭素材,用于短视频与社媒投放。</p></div>
+        <div class="vp"><i class="ti ti-palette"></i><div class="t">设计 / 打样</div><p class="d">设计稿快速上身预览,减少实物打样次数。</p></div>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="sec-title">常见问题</h2>
+      <div class="faq">
+        <div class="q">支持哪些图片格式和大小?<i class="ti ti-chevron-down"></i></div>
+        <div class="q">能保持服装的版型和面料细节吗?<i class="ti ti-chevron-down"></i></div>
+        <div class="q">可以一次给多个模特换同一款服装吗?<i class="ti ti-chevron-down"></i></div>
+        <div class="q">生成一张消耗多少 Credits?<i class="ti ti-chevron-down"></i></div>
+        <div class="q">生成的上身图可以商用吗?<i class="ti ti-chevron-down"></i></div>
+        <div class="q">可以通过 API 批量调用吗?<i class="ti ti-chevron-down"></i></div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:#121215;border:0.5px solid #1d1d22;border-radius:12px;flex-wrap:wrap;gap:12px;margin-top:34px">
+      <div style="font-size:15px;font-weight:500">开始为你的商品生成上身图</div>
+      <a class="cta-lg" href="#"><i class="ti ti-sparkles" style="font-size:16px"></i>免费试用换装</a>
+    </div>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
