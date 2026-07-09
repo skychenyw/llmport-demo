@@ -121,13 +121,13 @@
     </div>
 
     <div style="flex:1;min-width:0;padding:18px">
-      <div id="pvEmpty" class="pv-empty" style="margin-bottom:14px">
+      <div id="pvEmpty" class="pv-empty" style="margin-bottom:14px;aspect-ratio:16/10;min-height:220px;background:#161619;border:0.5px solid #1d1d22;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#5c5c64;font-size:13px">
         <i class="ti ti-photo" style="font-size:30px;margin-bottom:8px"></i>结果预览
         <span style="font-size:12px;margin-top:4px" id="pvHint">生成完成后在此查看、下载或重绘</span>
       </div>
       <div id="pvBox" style="display:none;margin-bottom:14px">
-        <div class="pv">
-          <div class="pv-track" id="pvTrack"></div>
+        <div class="pv" style="position:relative;aspect-ratio:16/10;min-height:220px;border:0.5px solid #1d1d22;border-radius:10px;overflow:hidden;background:#161619">
+          <div class="pv-track" id="pvTrack" style="display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth"></div>
           <button class="pv-nav prev" id="pvPrev" aria-label="上一张"><i class="ti ti-chevron-left"></i></button>
           <button class="pv-nav next" id="pvNext" aria-label="下一张"><i class="ti ti-chevron-right"></i></button>
           <span class="pv-count" id="pvCount">1 / 1</span>
@@ -203,6 +203,7 @@
       var seed=1500+Math.floor(Math.random()*300)+i;
       var sl=document.createElement("div");
       sl.className="pv-slide";
+      sl.style.cssText="flex:0 0 100%;height:100%;scroll-snap-align:center;position:relative;display:flex;align-items:center;justify-content:center;background-position:center;background-size:cover";
       sl.style.backgroundImage="linear-gradient(rgba(8,8,10,.08),rgba(8,8,10,.35)),url(https://picsum.photos/seed/"+seed+"/900/560)";
       sl.innerHTML='<span class="pv-idx">图 '+(i+1)+'</span>'+
                    '<div class="pv-acts"><span><i class="ti ti-download"></i>下载</span><span><i class="ti ti-refresh"></i>重绘</span></div>';
