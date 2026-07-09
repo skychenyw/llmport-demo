@@ -377,3 +377,14 @@ a.shot{border:0.5px solid transparent;transition:border-color .15s}
 .svis a:hover .tpl-go{opacity:1}
 .tpl-name{position:absolute;left:8px;bottom:8px;right:8px;font-size:11px;line-height:1.35;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.8)}
 .tpl-go{position:absolute;top:8px;right:8px;background:#6E3AFF;color:#fff;font-size:10px;padding:2px 8px;border-radius:999px;opacity:0;transition:opacity .15s}
+
+/* ===== 顶部 Banner 通栏 ===== */
+.topbanner{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;padding:11px 44px 11px 20px;background:linear-gradient(90deg,#3a1d8f 0%,#6E3AFF 45%,#8f5cff 100%);color:#fff;font-size:13px;flex-wrap:wrap}
+.topbanner .tb-text{display:flex;align-items:center;gap:8px}
+.topbanner .tb-text b{font-weight:600}
+.topbanner .tb-hl{background:rgba(255,255,255,.18);padding:1px 7px;border-radius:6px;font-weight:600}
+.topbanner .tb-cta{background:#fff;color:#3a1d8f;font-weight:600;font-size:12px;padding:6px 15px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:transform .12s}
+.topbanner .tb-cta:hover{transform:translateY(-1px)}
+.topbanner .tb-close{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.75);cursor:pointer;font-size:16px;line-height:1;display:flex}
+.topbanner .tb-close:hover{color:#fff}
+@media(max-width:600px){.topbanner{font-size:12px;padding:10px 38px 10px 14px}.topbanner .tb-cta{font-size:11px;padding:5px 12px}}

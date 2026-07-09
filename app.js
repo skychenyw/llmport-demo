@@ -53,6 +53,20 @@
     });
 
     applyMode();
+    applyBanner();
+  }
+
+  /* 顶部 Banner:可关闭,关闭后 7 天内不再显示 */
+  function applyBanner(){
+    var el=document.getElementById("topBanner"); if(!el) return;
+    var BK='llmport_banner_dismissed';
+    var until=parseInt(g(BK)||'0',10);
+    if(until && Date.now() < until){ el.style.display='none'; return; }
+    var btn=document.getElementById("tbClose");
+    if(btn) btn.addEventListener("click",function(){
+      el.style.display='none';
+      set(BK, String(Date.now()+7*24*60*60*1000));
+    });
   }
   if (document.readyState !== 'loading') apply();
   else document.addEventListener('DOMContentLoaded', apply);
