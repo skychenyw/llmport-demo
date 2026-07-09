@@ -5,12 +5,17 @@
   function set(k,v){ try { localStorage.setItem(k,v); } catch(e){ mem[k]=v; } }
   function del(k){ try { localStorage.removeItem(k); } catch(e){ delete mem[k]; } }
 
+  var HIS_KEYS = ['llmport_his_video','llmport_his_image'];
+  function clearHistory(){ HIS_KEYS.forEach(function(k){ del(k); }); }
+
   var API = {
     isAuthed: function(){ return g(AKEY) === '1'; },
     mode: function(){ return g(MKEY) || 'creative'; },     // 默认创作
-    login: function(mode){ set(AKEY,'1'); set(MKEY, mode || 'creative'); },
+    // 登录:开启新的创作会话,清空上一次登录遗留的历史
+    login: function(mode){ clearHistory(); set(AKEY,'1'); set(MKEY, mode || 'creative'); },
     enableDev: function(){ set(MKEY,'api'); },
-    logout: function(){ del(AKEY); del(MKEY); }
+    // 退出:清空登录态与本次创作历史(历史仅前端保存,不入库)
+    logout: function(){ del(AKEY); del(MKEY); clearHistory(); }
   };
   window.LLMPORT = API;
 

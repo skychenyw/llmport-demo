@@ -52,7 +52,13 @@
 
       <div class="field">
         <div class="lbl">模型</div>
-        <div class="sel"><span id="modelName">Kling 3.0 · pro</span><i class="ti ti-chevron-down"></i></div>
+        <div class="sel-wrap" id="modelSel">
+          <div class="sel"><span id="modelName">Kling 3.0 · pro</span><i class="ti ti-chevron-down"></i></div>
+          <div class="sel-menu">
+            <div class="sel-group">VIDEO MODELS</div>
+            <div class="sel-item" data-model="seedance-2.0" data-mult="1.0"><span class="si-l"><span class="si-name">Seedance 2.0</span><span class="si-sub">字节 · 多参考·物理真实</span></span><span class="si-r">×1.0</span></div><div class="sel-item" data-model="seedance-2.0-fast" data-mult="0.48"><span class="si-l"><span class="si-name">Seedance 2.0 Fast</span><span class="si-sub">字节 · 低成本高速档</span></span><span class="si-r">×0.48</span></div><div class="sel-item on" data-model="kling-3.0" data-mult="1.1"><span class="si-l"><span class="si-name">Kling 3.0 · pro</span><span class="si-sub">快手 · 电影级运动</span></span><span class="si-r">×1.1</span></div><div class="sel-item" data-model="veo-3.1" data-mult="2.05"><span class="si-l"><span class="si-name">Veo 3.1</span><span class="si-sub">Google · 原生音画同步</span></span><span class="si-r">×2.05</span></div><div class="sel-item" data-model="sora-2" data-mult="3.1"><span class="si-l"><span class="si-name">Sora 2</span><span class="si-sub">OpenAI · 多镜头一致性</span></span><span class="si-r">×3.1</span></div><div class="sel-item" data-model="hailuo-02" data-mult="0.82"><span class="si-l"><span class="si-name">Hailuo 02</span><span class="si-sub">MiniMax · 1080p 高清</span></span><span class="si-r">×0.82</span></div><div class="sel-item" data-model="runway-gen4" data-mult="1.37"><span class="si-l"><span class="si-name">Runway Gen-4</span><span class="si-sub">Runway · 创意特效</span></span><span class="si-r">×1.37</span></div><div class="sel-item" data-model="vidu-q3" data-mult="0.68"><span class="si-l"><span class="si-name">Vidu Q3</span><span class="si-sub">生数 · 音画合成</span></span><span class="si-r">×0.68</span></div><div class="sel-item" data-model="luma-ray2" data-mult="0.96"><span class="si-l"><span class="si-name">Luma Ray 2</span><span class="si-sub">Luma · 细腻动效</span></span><span class="si-r">×0.96</span></div>
+          </div>
+        </div>
         <div id="modelNote" style="display:none;font-size:12px;color:#c3b2ff;margin-top:6px"><i class="ti ti-circle-check" style="font-size:13px;vertical-align:-2px"></i> 已从模型页选用</div>
       </div>
 
@@ -144,7 +150,8 @@
 
     <!-- Preview column -->
     <div style="flex:1;min-width:0;padding:18px">
-      <div class="tabs" style="margin-bottom:14px"><span class="on">预览</span><span>历史</span></div>
+      <div class="tabs" id="viewTabs" style="margin-bottom:14px"><span class="on" data-view="preview">预览</span><span data-view="history">历史<b class="his-badge" id="hisCount" style="display:none">0</b></span></div>
+      <div id="viewPreview">
       <div id="pvEmpty" class="pv-empty" style="margin-bottom:14px;aspect-ratio:16/10;min-height:220px;background:#161619;border:0.5px solid #1d1d22;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#5c5c64;font-size:13px">
         <i class="ti ti-player-play" style="font-size:30px;margin-bottom:8px"></i>结果预览
         <span style="font-size:12px;margin-top:4px" id="pvHint">生成完成后在此播放、下载或一键再创作</span>
@@ -168,15 +175,43 @@
         <div class="outcell" style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.55)),url(https://picsum.photos/seed/1015/300/520) center/cover"><i class="ti ti-player-play"></i></div>
         <div class="outcell" style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.55)),url(https://picsum.photos/seed/1016/300/520) center/cover"><i class="ti ti-player-play"></i></div>
       </div>
+      </div>
+
+      <div id="viewHistory" style="display:none">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <span style="font-size:13px;color:#9a9aa2">本次创作历史 <span style="color:#6b6b72">(退出登录后清空)</span></span>
+          <span id="hisClear" style="font-size:12px;color:#c3b2ff;cursor:pointer">清空</span>
+        </div>
+        <div id="hisEmpty" class="his-empty">本次还没有生成记录<br><span style="font-size:12px">生成后会在此按批次记录,点击可回看结果</span></div>
+        <div id="hisList"></div>
+      </div>
     </div>
   </main>
 </div>
 
 <script>
   // model from query
-  var map={"seedance-2.0":"Seedance 2.0 · 标准","kling-3.0":"Kling 3.0 · pro","veo-3.1":"Veo 3.1","sora-2":"Sora 2","hailuo-02":"Hailuo 02","runway-gen4":"Runway Gen-4","vidu-q3":"Vidu Q3","luma-ray2":"Luma Ray 2"};
+  /* ---- 模型下拉选择 ---- */
+  var modelSel=document.getElementById("modelSel");
+  function pickModel(item,fromUrl){
+    modelSel.querySelectorAll(".sel-item").forEach(function(x){x.classList.remove("on");});
+    item.classList.add("on");
+    document.getElementById("modelName").textContent=item.querySelector(".si-name").textContent;
+    document.getElementById("modelNote").style.display=fromUrl?"block":"none";
+    modelSel.classList.remove("open");
+    if(typeof recalc==="function") recalc();
+  }
+  modelSel.querySelector(".sel").addEventListener("click",function(e){
+    e.stopPropagation(); modelSel.classList.toggle("open");
+  });
+  modelSel.querySelector(".sel-menu").addEventListener("click",function(e){
+    var it=e.target.closest(".sel-item"); if(it) pickModel(it,false);
+  });
+  document.addEventListener("click",function(e){
+    if(!modelSel.contains(e.target)) modelSel.classList.remove("open");
+  });
   var m=new URLSearchParams(location.search).get("model");
-  if(m&&map[m]){document.getElementById("modelName").textContent=map[m];document.getElementById("modelNote").style.display="block";}
+  if(m){ var t=modelSel.querySelector('.sel-item[data-model="'+m+'"]'); if(t) pickModel(t,true); }
 
   // mode tabs -> show matching input block
   var tabs=document.getElementById("modeTabs");
@@ -204,12 +239,16 @@
   document.getElementById("audioToggle").addEventListener("click",function(){this.classList.toggle("on");});
 
   // cost estimate ~ Pollo credit model
+  function curMult(){
+    var it=document.querySelector("#modelSel .sel-item.on");
+    return it?parseFloat(it.getAttribute("data-mult")):1;
+  }
   function recalc(){
     var perSec={480:1.132,720:2.435,1080:6.075};
     var res=+(document.querySelector('[data-group="res"] .on')||{}).getAttribute?.("data-res")||720;
     var dur=+(document.querySelector('[data-group="dur"] .on')||{}).getAttribute?.("data-dur")||5;
     var cnt=+(document.querySelector('[data-group="count"] .on')||{}).getAttribute?.("data-count")||1;
-    var c=Math.round(perSec[res]*dur*cnt);
+    var c=Math.max(1,Math.round(perSec[res]*dur*cnt*curMult()));
     document.getElementById("costVal").textContent="≈ "+c+" Credits";
     document.getElementById("genBtn").innerHTML='<i class="ti ti-sparkles" style="font-size:16px;vertical-align:-2px;margin-right:4px"></i>生成 · ≈ '+c+' Credits';
   }
@@ -232,10 +271,11 @@
   var cg=document.querySelector('[data-group="count"]');
   if(cg) cg.addEventListener("click", updHint);
 
-  function renderResults(n){
+  function renderResults(seeds){
+    var n=seeds.length;
     pvTrack.innerHTML=""; pvDots.innerHTML="";
     for(var i=0;i<n;i++){
-      var seed=1200+Math.floor(Math.random()*300)+i;
+      var seed=seeds[i];
       var sl=document.createElement("div");
       sl.className="pv-slide";
       sl.style.cssText="flex:0 0 100%;height:100%;scroll-snap-align:center;position:relative;display:flex;align-items:center;justify-content:center;background-position:center;background-size:cover";
@@ -294,10 +334,89 @@
     pvBox.style.display="none"; pvEmpty.style.display="flex";
     pvHint.textContent="正在生成 "+n+" 个结果…";
     setTimeout(function(){
-      renderResults(n);
+      var seeds=[]; for(var i=0;i<n;i++){ seeds.push(1200+Math.floor(Math.random()*6000)); }
+      renderResults(seeds);
+      addHistory(seeds);
       btn.disabled=false; btn.innerHTML=html; updHint();
     },1400);
   });
+
+  /* ---- 本次创作历史(前端保存,登录期间有效;退出登录即清空) ---- */
+  var HIS_KEY="llmport_his_video", _mem=null;
+  function loadHis(){
+    try{ var raw=localStorage.getItem(HIS_KEY); return raw?JSON.parse(raw):[]; }
+    catch(e){ return _mem||[]; }
+  }
+  function saveHis(){
+    try{ localStorage.setItem(HIS_KEY, JSON.stringify(HIS)); }
+    catch(e){ _mem=HIS; }
+  }
+  var HIS=loadHis();
+  var viewTabs=document.getElementById("viewTabs"),
+      viewPreview=document.getElementById("viewPreview"),
+      viewHistory=document.getElementById("viewHistory"),
+      hisList=document.getElementById("hisList"),
+      hisEmpty=document.getElementById("hisEmpty"),
+      hisCount=document.getElementById("hisCount");
+
+  function showView(v){
+    viewTabs.querySelectorAll("[data-view]").forEach(function(x){ x.classList.toggle("on", x.getAttribute("data-view")===v); });
+    viewPreview.style.display=(v==="preview")?"block":"none";
+    viewHistory.style.display=(v==="history")?"block":"none";
+  }
+  viewTabs.addEventListener("click",function(e){
+    var sp=e.target.closest("[data-view]"); if(!sp) return;
+    showView(sp.getAttribute("data-view"));
+  });
+
+  function pad(n){ return n<10?("0"+n):(""+n); }
+  function curParams(){
+    function txt(g){ var el=document.querySelector('[data-group="'+g+'"] .on'); return el?el.textContent.trim():""; }
+    return {
+      model: (document.getElementById("modelName")||{textContent:"模型"}).textContent.trim(),
+      params: [txt("dur"), txt("ratio"), txt("res")].filter(Boolean).join(" · "),
+      cost: (document.getElementById("costVal")||{textContent:""}).textContent.trim()
+    };
+  }
+  function addHistory(seeds){
+    var p=curParams(), d=new Date();
+    HIS.unshift({ seeds:seeds.slice(), model:p.model, params:p.params, cost:p.cost,
+                  time: pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds()) });
+    if(HIS.length>20) HIS.length=20;
+    saveHis(); renderHistory();
+  }
+  function renderHistory(){
+    hisCount.textContent=HIS.length;
+    hisCount.style.display=HIS.length?"inline-block":"none";
+    hisEmpty.style.display=HIS.length?"block":"none";
+    hisList.innerHTML="";
+    HIS.forEach(function(h,idx){
+      var thumbs="";
+      h.seeds.slice(0,3).forEach(function(sd){
+        thumbs+='<div class="hthumb" style="background-image:url(https://picsum.photos/seed/'+sd+'/120/120)"></div>';
+      });
+      if(h.seeds.length>3){
+        thumbs+='<div class="hthumb" style="background-image:url(https://picsum.photos/seed/'+h.seeds[3]+'/120/120)"><span class="more">+'+(h.seeds.length-3)+'</span></div>';
+      }
+      var card=document.createElement("div");
+      card.className="hcard"; card.setAttribute("data-i",idx);
+      card.innerHTML='<div class="hthumbs">'+thumbs+'</div>'+
+        '<div class="hmeta">'+
+          '<div class="hm-top"><span class="hm-model">'+h.model+'</span><span class="hm-time">'+h.time+'</span></div>'+
+          '<div class="hm-params">'+(h.params?h.params+' · ':'')+h.seeds.length+' 个结果</div>'+
+          '<div class="hm-cost">'+h.cost+'</div>'+
+        '</div>';
+      hisList.appendChild(card);
+    });
+  }
+  hisList.addEventListener("click",function(e){
+    var c=e.target.closest(".hcard"); if(!c) return;
+    var h=HIS[+c.getAttribute("data-i")]; if(!h) return;
+    renderResults(h.seeds);
+    showView("preview");
+  });
+  document.getElementById("hisClear").addEventListener("click",function(){ HIS=[]; saveHis(); renderHistory(); });
+  renderHistory();
 </script>
 
 <script src="app.js"></script>

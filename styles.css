@@ -337,3 +337,36 @@ a.shot{border:0.5px solid transparent;transition:border-color .15s}
 .pv-dot{width:6px;height:6px;border-radius:50%;background:#2a2a30;transition:.15s;cursor:pointer}
 .pv-dot.on{background:#6E3AFF;width:18px;border-radius:999px}
 .pv-empty{aspect-ratio:16/10;background:#161619;border:0.5px solid #1d1d22;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#5c5c64;font-size:13px}
+
+/* ===== 创作台 · 本次创作历史 ===== */
+.hcard{display:flex;gap:12px;padding:12px;border:0.5px solid #1d1d22;border-radius:12px;background:#0f0f12;margin-bottom:10px;cursor:pointer;transition:border-color .15s}
+.hcard:hover{border-color:#6E3AFF}
+.hthumbs{display:flex;gap:6px;flex-shrink:0}
+.hthumb{width:56px;height:56px;border-radius:8px;background-size:cover;background-position:center;position:relative;background-color:#1f1f25}
+.hthumb .more{position:absolute;inset:0;background:rgba(0,0,0,.6);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;border-radius:8px}
+.hmeta{flex:1;min-width:0}
+.hm-top{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.hm-model{font-size:13px;font-weight:500;color:#fff}
+.hm-time{font-size:11px;color:#6b6b72}
+.hm-params{font-size:12px;color:#9a9aa2}
+.hm-cost{font-size:11px;color:#c3b2ff;margin-top:4px}
+.his-empty{border:0.5px dashed #2a2a30;border-radius:12px;padding:34px;text-align:center;color:#5c5c64;font-size:13px}
+.his-badge{font-size:10px;background:#6E3AFF;color:#fff;border-radius:999px;padding:1px 6px;margin-left:4px;vertical-align:1px}
+
+/* ===== 模型下拉选择器 ===== */
+.sel-wrap{position:relative}
+.sel-wrap .sel{cursor:pointer;user-select:none}
+.sel-wrap .sel i{transition:transform .15s}
+.sel-wrap.open .sel{border-color:#6E3AFF}
+.sel-wrap.open .sel i{transform:rotate(180deg)}
+.sel-menu{position:absolute;top:calc(100% + 6px);left:0;right:0;background:#141417;border:0.5px solid #2a2a30;border-radius:10px;padding:5px;z-index:20;max-height:290px;overflow-y:auto;box-shadow:0 12px 32px rgba(0,0,0,.55);display:none}
+.sel-wrap.open .sel-menu{display:block}
+.sel-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 10px;border-radius:7px;cursor:pointer;font-size:13px;color:#cfcfd6}
+.sel-item:hover{background:#1d1d22;color:#fff}
+.sel-item.on{background:rgba(110,60,255,.16);color:#fff}
+.sel-item .si-l{display:flex;flex-direction:column;gap:2px;min-width:0}
+.sel-item .si-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sel-item .si-sub{font-size:11px;color:#6b6b72}
+.sel-item .si-r{font-size:11px;color:#9a9aa2;flex-shrink:0}
+.sel-item.on .si-r{color:#c3b2ff}
+.sel-group{font-size:10px;color:#5c5c64;padding:7px 10px 4px;letter-spacing:.04em}
