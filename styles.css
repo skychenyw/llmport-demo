@@ -370,3 +370,10 @@ a.shot{border:0.5px solid transparent;transition:border-color .15s}
 .sel-item .si-r{font-size:11px;color:#9a9aa2;flex-shrink:0}
 .sel-item.on .si-r{color:#c3b2ff}
 .sel-group{font-size:10px;color:#5c5c64;padding:7px 10px 4px;letter-spacing:.04em}
+
+/* ===== 场景模板卡 ===== */
+.svis a{position:relative;display:flex;align-items:center;justify-content:center;border-radius:10px;overflow:hidden;color:#fff;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.svis a:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.svis a:hover .tpl-go{opacity:1}
+.tpl-name{position:absolute;left:8px;bottom:8px;right:8px;font-size:11px;line-height:1.35;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.tpl-go{position:absolute;top:8px;right:8px;background:#6E3AFF;color:#fff;font-size:10px;padding:2px 8px;border-radius:999px;opacity:0;transition:opacity .15s}

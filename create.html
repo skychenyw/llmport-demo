@@ -44,6 +44,10 @@
         <a href="create-image.html">图像</a>
       </div>
 
+      <div id="tplBanner" style="display:none;align-items:center;justify-content:space-between;gap:8px;background:rgba(110,60,255,.12);border:0.5px solid rgba(110,60,255,.35);border-radius:10px;padding:9px 12px;margin-bottom:12px">
+        <span style="font-size:12px;color:#c3b2ff;display:flex;align-items:center;gap:6px"><i class="ti ti-layout-grid" style="font-size:14px"></i>已应用模板 · <b id="tplName" style="font-weight:500;color:#fff"></b></span>
+        <span id="tplClear" style="font-size:12px;color:#9a9aa2;cursor:pointer">清除</span>
+      </div>
       <div class="tabs" id="modeTabs" style="display:flex;flex-wrap:wrap">
         <span class="on" data-mode="t2v">文生视频</span>
         <span data-mode="i2v">图生视频</span>
@@ -66,13 +70,13 @@
       <div class="field modeblock" data-mode="i2v" style="display:none">
         <div class="lbl">起始帧 / 结束帧</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-          <div class="drop"><i class="ti ti-photo-plus"></i>起始帧</div>
+          <div class="drop" id="dropStart"><i class="ti ti-photo-plus"></i>起始帧</div>
           <div class="drop"><i class="ti ti-photo-plus"></i>结束帧<span style="font-size:10px;color:#6b6b72">可选</span></div>
         </div>
       </div>
       <div class="field modeblock" data-mode="ref" style="display:none">
         <div class="lbl">参考图（最多 4 张，锁定角色 / 物体 / 风格）</div>
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px" id="refSlots">
           <div class="refslot"><i class="ti ti-plus"></i></div>
           <div class="refslot"><i class="ti ti-plus"></i></div>
           <div class="refslot"><i class="ti ti-plus"></i></div>
@@ -82,7 +86,7 @@
 
       <div class="field">
         <div class="lbl">Prompt</div>
-        <textarea class="dk" rows="4">一瓶精华液在大理石台面上缓慢旋转，柔和的影棚灯光，景深虚化背景。</textarea>
+        <textarea class="dk" rows="4" id="promptBox">一瓶精华液在大理石台面上缓慢旋转，柔和的影棚灯光，景深虚化背景。</textarea>
         <span class="enhance"><i class="ti ti-wand" style="font-size:13px"></i> AI 优化提示词</span>
       </div>
 
@@ -417,6 +421,50 @@
   });
   document.getElementById("hisClear").addEventListener("click",function(){ HIS=[]; saveHis(); renderHistory(); });
   renderHistory();
+
+  /* ---- 模板带参进入(prompt / 参考图 / 参数) ---- */
+  (function applyTemplate(){
+    var q=new URLSearchParams(location.search);
+    var tpl=q.get("tpl"); if(!tpl) return;
+
+    var mode=q.get("mode")||"t2v";
+    var tabBtn=document.querySelector('#modeTabs [data-mode="'+mode+'"]');
+    if(tabBtn) tabBtn.click();
+
+    var p=q.get("prompt");
+    if(p){ var pb=document.getElementById("promptBox"); if(pb) pb.value=p; }
+
+    var dur=q.get("dur");
+    if(dur){ var d=document.querySelector('[data-group="dur"] [data-dur="'+dur+'"]'); if(d) d.click(); }
+    var res=q.get("res");
+    if(res){ var r=document.querySelector('[data-group="res"] [data-res="'+res+'"]'); if(r) r.click(); }
+    var ratio=q.get("ratio");
+    if(ratio){
+      document.querySelectorAll('[data-group="ratio"] .ratio').forEach(function(x){
+        if(x.textContent.trim()===ratio) x.click();
+      });
+    }
+
+    var ref=q.get("ref");
+    if(ref){
+      var bg="linear-gradient(rgba(8,8,10,.25),rgba(8,8,10,.55)),url(https://picsum.photos/seed/"+ref+"/300/300) center/cover";
+      if(mode==="i2v"){
+        var ds=document.getElementById("dropStart");
+        if(ds){ ds.style.background=bg; ds.style.borderStyle="solid"; ds.style.color="#fff";
+                ds.innerHTML='<i class="ti ti-photo-check" style="font-size:16px"></i>已载入参考图'; }
+      } else if(mode==="ref"){
+        var slot=document.querySelector("#refSlots .refslot");
+        if(slot){ slot.style.background=bg; slot.style.borderStyle="solid"; slot.innerHTML=""; }
+      }
+    }
+
+    var b=document.getElementById("tplBanner");
+    document.getElementById("tplName").textContent=tpl;
+    b.style.display="flex";
+    document.getElementById("tplClear").addEventListener("click",function(){
+      location.href="create.html";
+    });
+  })();
 </script>
 
 <script src="app.js"></script>
