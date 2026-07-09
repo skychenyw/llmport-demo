@@ -145,9 +145,18 @@
     <!-- Preview column -->
     <div style="flex:1;min-width:0;padding:18px">
       <div class="tabs" style="margin-bottom:14px"><span class="on">预览</span><span>历史</span></div>
-      <div style="aspect-ratio:16/10;background:#161619;border:0.5px solid #1d1d22;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#5c5c64;font-size:13px;margin-bottom:14px">
+      <div id="pvEmpty" class="pv-empty" style="margin-bottom:14px">
         <i class="ti ti-player-play" style="font-size:30px;margin-bottom:8px"></i>结果预览
-        <span style="font-size:12px;margin-top:4px">生成完成后在此播放、下载或一键再创作</span>
+        <span style="font-size:12px;margin-top:4px" id="pvHint">生成完成后在此播放、下载或一键再创作</span>
+      </div>
+      <div id="pvBox" style="display:none;margin-bottom:14px">
+        <div class="pv">
+          <div class="pv-track" id="pvTrack"></div>
+          <button class="pv-nav prev" id="pvPrev" aria-label="上一个"><i class="ti ti-chevron-left"></i></button>
+          <button class="pv-nav next" id="pvNext" aria-label="下一个"><i class="ti ti-chevron-right"></i></button>
+          <span class="pv-count" id="pvCount">1 / 1</span>
+        </div>
+        <div class="pv-dots" id="pvDots"></div>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
         <span style="font-size:13px;color:#9a9aa2">近期作品</span>
@@ -205,6 +214,89 @@
     document.getElementById("genBtn").innerHTML='<i class="ti ti-sparkles" style="font-size:16px;vertical-align:-2px;margin-right:4px"></i>生成 · ≈ '+c+' Credits';
   }
   recalc();
+
+  /* ---- 多结果预览轮播 ---- */
+  var pvEmpty=document.getElementById("pvEmpty"), pvBox=document.getElementById("pvBox"),
+      pvTrack=document.getElementById("pvTrack"), pvDots=document.getElementById("pvDots"),
+      pvCount=document.getElementById("pvCount"), pvHint=document.getElementById("pvHint");
+
+  function curCount(){
+    var el=document.querySelector('[data-group="count"] .on');
+    return el?+el.getAttribute("data-count"):1;
+  }
+  function updHint(){
+    var n=curCount();
+    pvHint.textContent = n>1 ? ("将生成 "+n+" 个结果,可左右滑动查看") : "生成完成后在此播放、下载或一键再创作";
+  }
+  updHint();
+  var cg=document.querySelector('[data-group="count"]');
+  if(cg) cg.addEventListener("click", updHint);
+
+  function renderResults(n){
+    pvTrack.innerHTML=""; pvDots.innerHTML="";
+    for(var i=0;i<n;i++){
+      var seed=1200+Math.floor(Math.random()*300)+i;
+      var sl=document.createElement("div");
+      sl.className="pv-slide";
+      sl.style.backgroundImage="linear-gradient(rgba(8,8,10,.15),rgba(8,8,10,.45)),url(https://picsum.photos/seed/"+seed+"/900/560)";
+      sl.innerHTML='<i class="ti ti-player-play pv-play"></i>'+
+                   '<span class="pv-idx">结果 '+(i+1)+'</span>'+
+                   '<div class="pv-acts"><span><i class="ti ti-download"></i>下载</span><span><i class="ti ti-refresh"></i>再创作</span></div>';
+      pvTrack.appendChild(sl);
+
+      var d=document.createElement("span");
+      d.className="pv-dot"+(i===0?" on":"");
+      d.setAttribute("data-i",i);
+      pvDots.appendChild(d);
+    }
+    pvCount.textContent="1 / "+n;
+    pvEmpty.style.display="none"; pvBox.style.display="block";
+    var multi = n>1;
+    document.getElementById("pvPrev").style.display=multi?"flex":"none";
+    document.getElementById("pvNext").style.display=multi?"flex":"none";
+    pvDots.style.display=multi?"flex":"none";
+    pvTrack.scrollLeft=0;
+  }
+  function goTo(i){
+    var w=pvTrack.clientWidth;
+    pvTrack.scrollTo({left:i*w, behavior:"smooth"});
+  }
+  function syncActive(){
+    var n=pvTrack.children.length; if(!n) return;
+    var i=Math.round(pvTrack.scrollLeft/pvTrack.clientWidth);
+    i=Math.max(0,Math.min(n-1,i));
+    pvCount.textContent=(i+1)+" / "+n;
+    pvDots.querySelectorAll(".pv-dot").forEach(function(d,k){d.classList.toggle("on",k===i);});
+  }
+  pvTrack.addEventListener("scroll", function(){ clearTimeout(pvTrack._t); pvTrack._t=setTimeout(syncActive,60); });
+  document.getElementById("pvPrev").addEventListener("click",function(){
+    var i=Math.round(pvTrack.scrollLeft/pvTrack.clientWidth); goTo(Math.max(0,i-1));
+  });
+  document.getElementById("pvNext").addEventListener("click",function(){
+    var i=Math.round(pvTrack.scrollLeft/pvTrack.clientWidth); goTo(Math.min(pvTrack.children.length-1,i+1));
+  });
+  pvDots.addEventListener("click",function(e){
+    var d=e.target.closest(".pv-dot"); if(d) goTo(+d.getAttribute("data-i"));
+  });
+  // 键盘左右键
+  document.addEventListener("keydown",function(e){
+    if(pvBox.style.display==="none") return;
+    if(e.key==="ArrowLeft") document.getElementById("pvPrev").click();
+    if(e.key==="ArrowRight") document.getElementById("pvNext").click();
+  });
+
+  // 点击生成 → 模拟生成中 → 出结果
+  document.getElementById("genBtn").addEventListener("click",function(){
+    var n=curCount(), btn=this, html=btn.innerHTML;
+    btn.disabled=true;
+    btn.innerHTML='<i class="ti ti-loader-2 spin" style="font-size:16px;vertical-align:-2px;margin-right:4px"></i>生成中 · '+n+' 个结果';
+    pvBox.style.display="none"; pvEmpty.style.display="flex";
+    pvHint.textContent="正在生成 "+n+" 个结果…";
+    setTimeout(function(){
+      renderResults(n);
+      btn.disabled=false; btn.innerHTML=html; updHint();
+    },1400);
+  });
 </script>
 
 <script src="app.js"></script>

@@ -317,3 +317,23 @@ a.shot{border:0.5px solid transparent;transition:border-color .15s}
 /* 场景模块视觉块:固定行高,左右等高 */
 .scene .svis{grid-auto-rows:148px}
 .scene .svis > div{overflow:hidden}
+
+/* ===== 创作台 · 多结果预览轮播 ===== */
+.pv{position:relative;aspect-ratio:16/10;border:0.5px solid #1d1d22;border-radius:10px;overflow:hidden;background:#161619}
+.pv-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none}
+.pv-track::-webkit-scrollbar{display:none}
+.pv-slide{flex:0 0 100%;height:100%;scroll-snap-align:center;position:relative;display:flex;align-items:center;justify-content:center;background-position:center;background-size:cover}
+.pv-slide .pv-play{font-size:34px;color:rgba(255,255,255,.9);text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.pv-idx{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.55);color:#fff;font-size:11px;padding:3px 9px;border-radius:999px}
+.pv-acts{position:absolute;bottom:10px;right:10px;display:flex;gap:6px}
+.pv-acts span{background:rgba(0,0,0,.55);color:#fff;font-size:11px;padding:5px 10px;border-radius:8px;display:inline-flex;align-items:center;gap:4px;cursor:pointer}
+.pv-acts span:hover{background:#6E3AFF}
+.pv-nav{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.55);border:none;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2}
+.pv-nav:hover{background:#6E3AFF}
+.pv-nav.prev{left:10px}
+.pv-nav.next{right:10px}
+.pv-count{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.55);color:#fff;font-size:11px;padding:3px 9px;border-radius:999px;z-index:2}
+.pv-dots{display:flex;justify-content:center;gap:6px;margin-top:10px}
+.pv-dot{width:6px;height:6px;border-radius:50%;background:#2a2a30;transition:.15s;cursor:pointer}
+.pv-dot.on{background:#6E3AFF;width:18px;border-radius:999px}
+.pv-empty{aspect-ratio:16/10;background:#161619;border:0.5px solid #1d1d22;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#5c5c64;font-size:13px}
