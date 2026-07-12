@@ -38,15 +38,12 @@
     <div style="width:300px;flex-shrink:0;padding:18px;border-right:0.5px solid #1d1d22;overflow-y:auto">
       <div class="crsub">
         <a href="create.html">视频生成</a>
-        <a href="create-video-to-video.html">视频转视频</a>
-        <a href="create-video-editor.html">视频编辑</a>
         <a class="on" href="create-image.html">图像</a>
       </div>
 
       <div class="tabs" id="modeTabs" style="display:flex;flex-wrap:wrap">
         <span class="on" data-mode="t2i">文生图</span>
         <span data-mode="i2i">图生图</span>
-        <span data-mode="edit">局部编辑</span>
       </div>
 
       <div class="field">
@@ -65,15 +62,9 @@
         <div class="lbl">参考图</div>
         <div class="drop"><i class="ti ti-photo-plus"></i>上传一张要变体 / 改风格的图</div>
       </div>
-      <div class="field modeblock" data-mode="edit" style="display:none">
-        <div class="lbl">原图 + 涂抹区域</div>
-        <div class="drop"><i class="ti ti-photo-plus"></i>上传原图，进入后涂抹要修改的区域</div>
-      </div>
-
       <div class="field">
         <div class="lbl">Prompt</div>
         <textarea class="dk" rows="4">一瓶护肤精华液产品图，纯色背景，柔和光影，电商主图风格，高细节。</textarea>
-        <span class="enhance"><i class="ti ti-wand" style="font-size:13px"></i> AI 优化提示词</span>
       </div>
 
       <div class="field">
