@@ -30,29 +30,17 @@
 <div class="wrap" style="text-align:center;padding-top:48px;padding-bottom:26px">
   <span class="eyebrow">数十款顶级模型 · 一站生成 · 免费开始</span>
   <div style="font-size:32px;font-weight:500;line-height:1.3;max-width:600px;margin:0 auto 14px">全球顶级 AI 模型，一站创作</div>
-  <p class="lead" style="max-width:500px;margin:0 auto 26px">数十款顶级 AI 视频与图像模型，一站调用。无需逐家接入，创意即刻成片。</p>
-  <div style="display:flex;gap:12px;justify-content:center">
-    <a class="cta-lg" href="create.html"><i class="ti ti-sparkles" style="font-size:16px"></i>免费开始创作</a>
-    <a href="models.html" style="font-size:14px;border:0.5px solid #2a2a30;color:#fff;padding:11px 22px;border-radius:8px">浏览模型库</a>
-  </div>
-</div>
+  <p class="lead" style="max-width:500px;margin:0 auto 22px">一个账号,调齐 Seedance、Kling、Veo、Sora 等数十款模型。无需逐家接入,创意即刻成片。</p>
 
-<div class="wrap" style="padding-top:0;padding-bottom:30px">
-  <div class="showrow">
-    <a class="shot" href="model-seedance.html" style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.55)),url(https://picsum.photos/seed/1017/300/520) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i><span class="lab">Seedance 2.0</span></a>
-    <a class="shot" href="model-veo.html" style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.55)),url(https://picsum.photos/seed/1018/300/520) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i><span class="lab">Veo 3.1</span></a>
-    <a class="shot" href="model-kling.html" style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.55)),url(https://picsum.photos/seed/1019/300/520) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i><span class="lab">Kling 3.0</span></a>
-    <a class="shot" href="model-sora.html" style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.55)),url(https://picsum.photos/seed/1020/300/520) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i><span class="lab">Sora 2</span></a>
-    <a class="shot" href="model-hailuo.html" style="background:linear-gradient(rgba(8,8,10,.12),rgba(8,8,10,.55)),url(https://picsum.photos/seed/1021/300/520) center/cover"><i class="ti ti-player-play" style="font-size:24px"></i><span class="lab">Hailuo 02</span></a>
+  <div class="herobox">
+    <div class="hb-seg" id="hbSeg"><span class="on" data-t="video">视频</span><span data-t="image">图像</span></div>
+    <textarea id="hbPrompt" rows="2" placeholder="描述你想生成的画面,例如:金黄麦田中一棵孤树随风摇曳,柔和自然光…"></textarea>
+    <div class="hb-bottom">
+      <div class="hb-note"><i class="ti ti-gift" style="font-size:12px;vertical-align:-1px"></i> 免费额度 · <span id="hbNoteModel">Seedance Fast</span> · 结果带水印</div>
+      <button class="hb-gen" id="hbGen"><i class="ti ti-sparkles" style="font-size:15px"></i>免费生成</button>
+    </div>
   </div>
-</div>
-
-<!-- Model wall -->
-<div class="wrap" style="padding-top:0;padding-bottom:36px">
-  <div style="font-size:12px;color:#6b6b72;text-align:center;margin-bottom:14px">已聚合 27+ 视频 / 图像模型，持续上新</div>
-  <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
-    <a class="chip" href="model-veo.html">Veo 3.1</a><a class="chip" href="model-sora.html">Sora 2</a><a class="chip" href="model-kling.html">Kling 3.0</a><a class="chip" href="model-seedance.html">Seedance 2.0</a><a class="chip" href="model-hailuo.html">Hailuo</a><a class="chip" href="model-runway.html">Runway</a><a class="chip" href="model-vidu.html">Vidu</a><a class="chip" href="model-luma.html">Luma</a><a class="chip" href="model-gpt-image.html">GPT Image 2</a><a class="chip" href="model-nano-banana.html">Nano Banana 2</a>
-  </div>
+  <div style="margin-top:12px"><a href="models.html" style="font-size:13px;color:#9a9aa2">或浏览全部模型库 →</a></div>
 </div>
 
 <!-- Scenarios -->
@@ -103,7 +91,7 @@
 
 <!-- Models -->
 <div class="wrap" style="padding-top:0;padding-bottom:36px">
-  <div class="sec-head"><h2>模型库</h2><a href="models.html">查看全部模型 →</a></div>
+  <div class="sec-head"><h2>模型库 <span style="font-size:12px;color:#6b6b72;font-weight:400;margin-left:6px">已聚合 27+ 模型,持续上新</span></h2><a href="models.html">查看全部模型 →</a></div>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
     <a class="mcard" href="model-seedance.html"><div class="nm">Seedance 2.0 <span class="badge">New</span></div><div class="ds">字节 · 多参考·物理真实</div><div style="display:flex;gap:6px"><span class="tag">图生视频</span><span class="tag">参考</span></div><div class="pr">起价 $0.07 / 秒</div></a>
     <a class="mcard" href="model-veo.html"><div class="nm">Veo 3.1 <span class="badge">Hot</span></div><div class="ds">Google · 原生音画同步</div><div style="display:flex;gap:6px"><span class="tag">文生视频</span><span class="tag">音频</span></div><div class="pr">起价 $0.30 / 秒</div></a>
@@ -191,6 +179,37 @@
   </div>
 </footer>
 
+<script>
+  (function(){
+    var seg=document.getElementById("hbSeg"),
+        gen=document.getElementById("hbGen"),
+        box=document.getElementById("hbPrompt");
+    if(!seg||!gen||!box) return;
+    var type="video";
+    function setPlaceholder(){
+      box.placeholder = (type==="image")
+        ? "描述你想生成的图像,例如:一瓶护肤精华液,纯色背景,柔和光影,电商主图…"
+        : "描述你想生成的画面,例如:金黄麦田中一棵孤树随风摇曳,柔和自然光…";
+      var nm=document.getElementById("hbNoteModel");
+      if(nm) nm.textContent = (type==="image") ? "Nano Banana 2" : "Seedance Fast";
+    }
+    seg.addEventListener("click",function(e){
+      var sp=e.target.closest("[data-t]"); if(!sp) return;
+      type=sp.getAttribute("data-t");
+      seg.querySelectorAll("span").forEach(function(x){ x.classList.toggle("on", x===sp); });
+      setPlaceholder();
+    });
+    gen.addEventListener("click",function(){
+      var p=(box.value||"").trim();
+      var base = (type==="image") ? "create-image.html" : "create.html";
+      var qs = "?model=" + (type==="image" ? "nano-banana-2" : "seedance-2.0-fast");
+      if(p) qs += "&prompt=" + encodeURIComponent(p);
+      var target = base + qs;
+      var authed = (localStorage.getItem("llmport_auth")==="1");
+      location.href = authed ? target : ("login.html?next=" + encodeURIComponent(target));
+    });
+  })();
+</script>
 <script src="app.js"></script>
 </body>
 </html>

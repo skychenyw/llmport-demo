@@ -422,7 +422,15 @@
   /* ---- 模板带参进入(prompt / 参考图 / 参数) ---- */
   (function applyTemplate(){
     var q=new URLSearchParams(location.search);
-    var tpl=q.get("tpl"); if(!tpl) return;
+    var tpl=q.get("tpl");
+    // 无模板但带 prompt/model(如首页 Hero 免费入口)也要接住
+    if(!tpl){
+      var hp=q.get("prompt");
+      if(hp){ var pb0=document.getElementById("promptBox"); if(pb0) pb0.value=hp; }
+      var hm=q.get("model");
+      if(hm){ var t0=document.querySelector('#modelSel .sel-item[data-model="'+hm+'"]'); if(t0 && typeof pickModel==="function") pickModel(t0,false); }
+      return;
+    }
 
     var mode=q.get("mode")||"t2v";
     var tabBtn=document.querySelector('#modeTabs [data-mode="'+mode+'"]');

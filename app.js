@@ -40,7 +40,11 @@
     document.querySelectorAll('[data-auth="user"]').forEach(function(el){ el.style.display = authed ? '' : 'none'; });
 
     document.querySelectorAll('[data-action="login"]').forEach(function(el){
-      el.addEventListener('click', function(e){ e.preventDefault(); API.login('creative'); location.href = 'account.html'; });
+      el.addEventListener('click', function(e){
+        e.preventDefault(); API.login('creative');
+        var next = new URLSearchParams(location.search).get('next');
+        location.href = next ? decodeURIComponent(next) : 'account.html';
+      });
     });
     document.querySelectorAll('[data-action="login-api"]').forEach(function(el){
       el.addEventListener('click', function(e){ e.preventDefault(); API.login('api'); location.href = 'api.html'; });

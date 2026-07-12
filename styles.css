@@ -388,3 +388,15 @@ a.shot{border:0.5px solid transparent;transition:border-color .15s}
 .topbanner .tb-close{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.75);cursor:pointer;font-size:16px;line-height:1;display:flex}
 .topbanner .tb-close:hover{color:#fff}
 @media(max-width:600px){.topbanner{font-size:12px;padding:10px 38px 10px 14px}.topbanner .tb-cta{font-size:11px;padding:5px 12px}}
+
+/* ===== Hero 迷你创作入口 ===== */
+.herobox{max-width:620px;margin:0 auto;background:#0f0f12;border:0.5px solid #1d1d22;border-radius:16px;padding:14px;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.herobox .hb-seg{display:inline-flex;background:#141417;border:0.5px solid #1d1d22;border-radius:999px;padding:3px;margin-bottom:10px}
+.herobox .hb-seg span{font-size:12px;color:#9a9aa2;padding:5px 14px;border-radius:999px;cursor:pointer}
+.herobox .hb-seg span.on{background:#6E3AFF;color:#fff}
+.herobox textarea{width:100%;background:#141417;border:0.5px solid #1d1d22;border-radius:10px;color:#fff;font-size:14px;padding:12px;resize:none;font-family:inherit;box-sizing:border-box}
+.herobox textarea:focus{outline:none;border-color:#6E3AFF}
+.herobox .hb-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:10px;gap:10px;flex-wrap:wrap}
+.herobox .hb-note{font-size:11px;color:#6b6b72;text-align:left}
+.herobox .hb-gen{background:#6E3AFF;color:#fff;border:none;font-size:14px;font-weight:500;padding:10px 22px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.herobox .hb-gen:hover{background:#5c30d6}

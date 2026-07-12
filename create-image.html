@@ -52,7 +52,7 @@
           <div class="sel"><span id="modelName">GPT Image 2</span><i class="ti ti-chevron-down"></i></div>
           <div class="sel-menu">
             <div class="sel-group">IMAGE MODELS</div>
-            <div class="sel-item on" data-model="gpt-image-2" data-mult="1.0"><span class="si-l"><span class="si-name">GPT Image 2</span><span class="si-sub">OpenAI · 文字渲染精准</span></span><span class="si-r">×1.0</span></div><div class="sel-item" data-model="nano-banana-2" data-mult="0.69"><span class="si-l"><span class="si-name">Nano Banana 2</span><span class="si-sub">Google · 高保真·一致性</span></span><span class="si-r">×0.69</span></div><div class="sel-item" data-model="seedream" data-mult="0.55"><span class="si-l"><span class="si-name">Seedream 5</span><span class="si-sub">字节 · 中文场景友好</span></span><span class="si-r">×0.55</span></div><div class="sel-item" data-model="flux" data-mult="0.62"><span class="si-l"><span class="si-name">Flux</span><span class="si-sub">Black Forest · 快速出图</span></span><span class="si-r">×0.62</span></div>
+            <div class="sel-item on" data-model="gpt-image-2" data-mult="1.0"><span class="si-l"><span class="si-name">GPT Image 2</span><span class="si-sub">OpenAI · 文字渲染精准</span></span><span class="si-r">×1.0</span></div><div class="sel-item" data-model="nano-banana-2" data-mult="0.69"><span class="si-l"><span class="si-name">Nano Banana 2</span><span class="si-sub">Google · 高保真·一致性</span></span><span class="si-r">×0.69</span></div>
           </div>
         </div>
         <div id="modelNote" style="display:none;font-size:12px;color:#c3b2ff;margin-top:6px"><i class="ti ti-circle-check" style="font-size:13px;vertical-align:-2px"></i> 已从模型页选用</div>
@@ -64,7 +64,7 @@
       </div>
       <div class="field">
         <div class="lbl">Prompt</div>
-        <textarea class="dk" rows="4">一瓶护肤精华液产品图，纯色背景，柔和光影，电商主图风格，高细节。</textarea>
+        <textarea class="dk" rows="4" id="promptBox">一瓶护肤精华液产品图，纯色背景，柔和光影，电商主图风格，高细节。</textarea>
       </div>
 
       <div class="field">
@@ -178,8 +178,11 @@
   document.addEventListener("click",function(e){
     if(!modelSel.contains(e.target)) modelSel.classList.remove("open");
   });
-  var im=new URLSearchParams(location.search).get("model");
+  var q0=new URLSearchParams(location.search);
+  var im=q0.get("model");
   if(im){ var t=modelSel.querySelector('.sel-item[data-model="'+im+'"]'); if(t) pickModel(t,true); }
+  var hp=q0.get("prompt");
+  if(hp){ var pb0=document.getElementById("promptBox"); if(pb0) pb0.value=hp; }
 
   var tabs=document.getElementById("modeTabs");
   tabs.addEventListener("click",function(e){
