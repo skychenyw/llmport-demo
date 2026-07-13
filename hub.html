@@ -26,14 +26,14 @@
   <span class="eyebrow">资源中心 · Hub</span>
   <h1 class="h1" style="margin:6px 0 8px">学着把 AI 用出好效果</h1>
   <p class="lead" style="max-width:560px">AI 视频与图像创作的使用教程、提示词指南、模型评测与实战案例——从入门到投放。</p>
-  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
-    <a class="chip" href="hub.html" style="border-color:#6E3AFF;color:#fff">全部</a>
-    <span class="chip">模型指南</span><span class="chip">使用教程</span><span class="chip">提示词</span><span class="chip">评测对比</span><span class="chip">案例</span>
+  <div id="hubfilter" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
+    <span class="chip" data-cat="全部" style="cursor:pointer;border-color:#6E3AFF;color:#fff">全部</span>
+    <span class="chip" data-cat="模型指南" style="cursor:pointer">模型指南</span><span class="chip" data-cat="使用教程" style="cursor:pointer">使用教程</span><span class="chip" data-cat="提示词" style="cursor:pointer">提示词</span><span class="chip" data-cat="评测对比" style="cursor:pointer">评测对比</span><span class="chip" data-cat="案例" style="cursor:pointer">案例</span>
   </div>
 </div>
 
 <div class="wrap" style="padding-top:8px">
-  <a class="feat-art" href="hub-seedance-2-guide.html">
+  <a class="feat-art" data-cat="模型指南" href="hub-seedance-2-guide.html">
     <div class="fth" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5100/700/500) center/cover"></div>
     <div class="fbody">
       <span class="acat">模型指南 · 精选</span>
@@ -43,7 +43,7 @@
     </div>
   </a>
 
-  <div class="hublist"><a class="acard" href="hub-kling-vs-veo.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5101/600/360) center/cover"></div><div class="abody"><span class="acat">模型指南</span><div class="atitle">Kling 3.0 vs Veo 3.1:该怎么选?</div><p class="aexc">横向对比两款顶级视频模型的画质、运动、音频与价格,帮你按场景选对模型。</p><div class="ameta">6 分钟阅读</div></div></a><a class="acard" href="docs.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5102/600/360) center/cover"></div><div class="abody"><span class="acat">使用教程</span><div class="atitle">从 fal 迁移到 LLMPORT:5 分钟教程</div><p class="aexc">只改 host 与 key,把现有视频生成调用平滑迁过来,并在账单上看到成本差。</p><div class="ameta">5 分钟阅读</div></div></a><a class="acard" href="hub-video-prompt-guide.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5103/600/360) center/cover"></div><div class="abody"><span class="acat">提示词</span><div class="atitle">如何写好 AI 视频提示词(附模板)</div><p class="aexc">结构化提示词公式 + 真实范例,稳定产出有张力的成片。</p><div class="ameta">8 分钟阅读</div></div></a><a class="acard" href="hub-seedance-2-guide.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5104/600/360) center/cover"></div><div class="abody"><span class="acat">评测对比</span><div class="atitle">Sora 2 上手评测:强在哪、弱在哪</div><p class="aexc">实测多镜头叙事、物理真实度与音频表现,给出适用与不适用的场景。</p><div class="ameta">7 分钟阅读</div></div></a><a class="acard" href="hub-ecommerce-video.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5105/600/360) center/cover"></div><div class="abody"><span class="acat">案例</span><div class="atitle">电商短视频:用 AI 批量出可投放素材</div><p class="aexc">从商品图到 9:16 成片的可复现配方,适合品牌与带货团队。</p><div class="ameta">6 分钟阅读</div></div></a><a class="acard" href="hub-seedance-2-guide.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5106/600/360) center/cover"></div><div class="abody"><span class="acat">使用教程</span><div class="atitle">Hailuo 02 新手指南</div><p class="aexc">MiniMax 海螺 02 的上手流程、参数与出片技巧一文讲清。</p><div class="ameta">5 分钟阅读</div></div></a></div>
+  <div class="hublist"><a class="acard" href="hub-kling-vs-veo.html" data-cat="模型指南"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5101/600/360) center/cover"></div><div class="abody"><span class="acat">模型指南</span><div class="atitle">Kling 3.0 vs Veo 3.1:该怎么选?</div><p class="aexc">横向对比两款顶级视频模型的画质、运动、音频与价格,帮你按场景选对模型。</p><div class="ameta">6 分钟阅读</div></div></a><a class="acard" href="docs.html" data-cat="使用教程"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5102/600/360) center/cover"></div><div class="abody"><span class="acat">使用教程</span><div class="atitle">从 fal 迁移到 LLMPORT:5 分钟教程</div><p class="aexc">只改 host 与 key,把现有视频生成调用平滑迁过来,并在账单上看到成本差。</p><div class="ameta">5 分钟阅读</div></div></a><a class="acard" href="hub-video-prompt-guide.html" data-cat="提示词"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5103/600/360) center/cover"></div><div class="abody"><span class="acat">提示词</span><div class="atitle">如何写好 AI 视频提示词(附模板)</div><p class="aexc">结构化提示词公式 + 真实范例,稳定产出有张力的成片。</p><div class="ameta">8 分钟阅读</div></div></a><a class="acard" href="hub-seedance-2-guide.html" data-cat="评测对比"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5104/600/360) center/cover"></div><div class="abody"><span class="acat">评测对比</span><div class="atitle">Sora 2 上手评测:强在哪、弱在哪</div><p class="aexc">实测多镜头叙事、物理真实度与音频表现,给出适用与不适用的场景。</p><div class="ameta">7 分钟阅读</div></div></a><a class="acard" href="hub-ecommerce-video.html" data-cat="案例"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5105/600/360) center/cover"></div><div class="abody"><span class="acat">案例</span><div class="atitle">电商短视频:用 AI 批量出可投放素材</div><p class="aexc">从商品图到 9:16 成片的可复现配方,适合品牌与带货团队。</p><div class="ameta">6 分钟阅读</div></div></a><a class="acard" href="hub-seedance-2-guide.html" data-cat="使用教程"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5106/600/360) center/cover"></div><div class="abody"><span class="acat">使用教程</span><div class="atitle">Hailuo 02 新手指南</div><p class="aexc">MiniMax 海螺 02 的上手流程、参数与出片技巧一文讲清。</p><div class="ameta">5 分钟阅读</div></div></a><a class="acard" data-cat="提示词" href="hub-video-prompt-guide.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5107/600/360) center/cover"></div><div class="abody"><span class="acat">提示词</span><div class="atitle">电商商品视频提示词模板(9:16)</div><p class="aexc">按"产品特写→场景→卖点字幕"公式套用,快速产出可投放的带货短视频。</p><div class="ameta">6 分钟阅读</div></div></a><a class="acard" data-cat="评测对比" href="hub-kling-vs-veo.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5108/600/360) center/cover"></div><div class="abody"><span class="acat">评测对比</span><div class="atitle">Seedance 2 vs Kling 3.0:视频模型横评</div><p class="aexc">同一批提示词实测两款国产主力,对比画质、运动、商品保真与每秒成本。</p><div class="ameta">7 分钟阅读</div></div></a><a class="acard" data-cat="案例" href="hub-ecommerce-video.html"><div class="ath" style="background:linear-gradient(rgba(8,8,10,.1),rgba(8,8,10,.4)),url(https://picsum.photos/seed/5109/600/360) center/cover"></div><div class="abody"><span class="acat">案例</span><div class="atitle">UGC 口播:AI 批量生成达人带货短视频</div><p class="aexc">从脚本到数字人口播成片的流水线,单条成本压到人工的零头。</p><div class="ameta">6 分钟阅读</div></div></a></div>
 
   <p class="lead" style="text-align:center;margin-top:28px;color:#6b6b72;font-size:13px">更多文章持续更新中</p>
 </div>
@@ -65,5 +65,48 @@
 </footer>
 
 <script src="app.js"></script>
+<script>
+(function(){
+  var chips=document.querySelectorAll('#hubfilter .chip');
+  var cards=[].slice.call(document.querySelectorAll('.hublist .acard'));
+  var feat=document.querySelector('.feat-art');
+  if(!feat) return;
+  var defHTML=feat.innerHTML, defHref=feat.getAttribute('href');
+  function setFeaturedFrom(card){
+    var bg=card.querySelector('.ath').getAttribute('style')||'';
+    var cat=card.querySelector('.acat').textContent;
+    var title=card.querySelector('.atitle').textContent;
+    var exc=card.querySelector('.aexc').textContent;
+    var metaEl=card.querySelector('.ameta');
+    var meta=metaEl?metaEl.textContent:'';
+    feat.setAttribute('href', card.getAttribute('href'));
+    feat.innerHTML=
+      '<div class="fth" style="'+bg+'"></div>'+
+      '<div class="fbody">'+
+        '<span class="acat">'+cat+' · 精选</span>'+
+        '<div class="atitle">'+title+'</div>'+
+        '<p class="aexc">'+exc+'</p>'+
+        '<div class="ameta" style="font-size:12px;color:#6b6b72;margin-top:14px">LLMPORT 团队 · '+meta+'</div>'+
+      '</div>';
+  }
+  function restoreDefault(){ feat.innerHTML=defHTML; feat.setAttribute('href',defHref); }
+  function apply(cat){
+    chips.forEach(function(c){ var on=c.dataset.cat===cat; c.style.borderColor=on?'#6E3AFF':''; c.style.color=on?'#fff':''; });
+    var promoted=null;
+    if(cat==='全部'||cat==='模型指南'){
+      restoreDefault();                       // 默认精选：Seedance（模型指南旗舰）
+    }else{
+      var first=cards.filter(function(c){ return c.dataset.cat===cat; })[0];
+      if(first){ setFeaturedFrom(first); promoted=first; } else { restoreDefault(); }
+    }
+    cards.forEach(function(card){
+      var show=(cat==='全部'||card.dataset.cat===cat) && card!==promoted;
+      card.style.display=show?'':'none';
+    });
+    feat.style.display='';
+  }
+  chips.forEach(function(c){ c.addEventListener('click',function(){ apply(c.dataset.cat); }); });
+})();
+</script>
 </body>
 </html>
