@@ -24,6 +24,14 @@
     var isApi = API.mode() === 'api';
     var sel = 'aside.sidebar a.nav[href="api-platform.html"],aside.sidebar a.nav[href="api.html"],aside.sidebar a.nav[href="docs.html"]';
     document.querySelectorAll(sel).forEach(function(el){ el.style.display = isApi ? '' : 'none'; });
+    // 开发者模式下才显示 API 积分卡；单池时不加"站内"限定词（无对比对象）
+    document.querySelectorAll('[data-dev-only]').forEach(function(el){ el.style.display = isApi ? '' : 'none'; });
+    document.querySelectorAll('[data-credit-label]').forEach(function(el){ el.textContent = isApi ? '站内积分（创作台）' : '积分余额'; });
+    // 顶栏药丸：单池时不提"与 API 积分独立"（无对比对象）
+    document.querySelectorAll('a.credits[title],span.credits[title]').forEach(function(el){
+      if (el.title.indexOf('API 积分（开发者）') === 0) return;   // api.html 自己的 API 药丸，不动
+      el.title = isApi ? '站内积分（创作台）· 与 API 积分独立' : '积分余额（创作台）';
+    });
     document.querySelectorAll('aside.sidebar .sgroup').forEach(function(gp){
       if (gp.textContent.trim() === 'Developers') {
         gp.style.display = isApi ? '' : 'none';
