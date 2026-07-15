@@ -106,19 +106,19 @@
   <div style="max-width:940px;margin:16px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px">
     <div style="border:0.5px solid #1d1d22;border-radius:10px;padding:12px 14px;font-size:12px;color:#9a9aa2;line-height:1.6"><b style="color:#cfcfd6">订阅积分按月发放</b>，当月未用完不结转（月底清零）。</div>
     <div style="border:0.5px solid #1d1d22;border-radius:10px;padding:12px 14px;font-size:12px;color:#9a9aa2;line-height:1.6"><b style="color:#cfcfd6">加油包积分永不过期</b>，取消订阅后仍可用（仅付费订阅期间可购买）。</div>
-    <div style="border:0.5px solid #1d1d22;border-radius:10px;padding:12px 14px;font-size:12px;color:#9a9aa2;line-height:1.6"><b style="color:#c3b2ff">站内积分与开发者 API 积分两套独立</b>，不可互转。</div>
+    <div style="border:0.5px solid #1d1d22;border-radius:10px;padding:12px 14px;font-size:12px;color:#9a9aa2;line-height:1.6"><b style="color:#c3b2ff">站内积分与 API 余额（USD）两套独立</b>，计价单位不同，不可互转。</div>
     <div style="border:0.5px solid #1d1d22;border-radius:10px;padding:12px 14px;font-size:12px;color:#9a9aa2;line-height:1.6"><b style="color:#cfcfd6">失败不扣费</b>；生成降级按实际产出规格计费。</div>
   </div>
 </div>
 
 <!-- 按量 -->
 <div class="wrap" id="payg" style="display:none;padding-top:6px">
-  <p class="lead" style="text-align:center;margin-bottom:18px">充值积分按调用扣费。API 积分与站内积分独立。</p>
+  <p class="lead" style="text-align:center;margin-bottom:18px">API 以 <b style="color:#cfcfd6">USD 预付余额</b>结算，按调用直接扣款（如每次 $0.145）。与站内积分独立、不可互转。</p>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
-    <div class="pk"><div class="c">1,000</div><div class="p">$9</div><div class="u">$0.0090 / 积分</div><div class="b">购买</div></div>
-    <div class="pk" style="border:1.5px solid #6E3AFF;position:relative"><span style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#6E3AFF;color:#fff;font-size:10px;padding:2px 10px;border-radius:999px">最受欢迎</span><div class="c">5,000</div><div class="p">$39</div><div class="u">$0.0078 / 积分</div><div class="b" style="background:#6E3AFF;border-color:#6E3AFF">购买</div></div>
-    <div class="pk"><div class="c">20,000</div><div class="p">$139</div><div class="u">$0.0070 / 积分</div><div class="b">购买</div></div>
-    <div class="pk"><div class="c">50,000</div><div class="p">$299</div><div class="u">$0.0060 / 积分</div><div class="b">购买</div></div>
+    <div class="pk"><div class="c">$20</div><div class="p">到账 $20</div><div class="u">无赠送</div><div class="b">充值</div></div>
+    <div class="pk" style="border:1.5px solid #6E3AFF;position:relative"><span style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:#6E3AFF;color:#fff;font-size:10px;padding:2px 10px;border-radius:999px">最受欢迎</span><div class="c">$50</div><div class="p">到账 $52.50</div><div class="u">赠 5%</div><div class="b" style="background:#6E3AFF;border-color:#6E3AFF">充值</div></div>
+    <div class="pk"><div class="c">$200</div><div class="p">到账 $216</div><div class="u">赠 8%</div><div class="b">充值</div></div>
+    <div class="pk"><div class="c">$500</div><div class="p">到账 $560</div><div class="u">赠 12%</div><div class="b">充值</div></div>
   </div>
 
   <div style="margin-top:22px;border:0.5px solid #1d1d22;border-radius:12px;overflow:hidden">
