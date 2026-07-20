@@ -8,6 +8,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3/dist/tabler-icons.min.css">
 <link rel="stylesheet" href="styles.css">
+<style>
+  .pricing-plans .plan{display:flex;flex-direction:column}
+  .pricing-plans .plan .cta{margin-top:auto}
+  @media (max-width:760px){
+    .pricing-plans{grid-template-columns:1fr!important}
+    .pricing-compare{max-width:100%;overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+    .pricing-compare table{min-width:640px}
+    .pricing-notes{grid-template-columns:1fr!important}
+  }
+</style>
 </head>
 <body>
 
@@ -34,12 +44,13 @@
   <div style="text-align:center;margin-bottom:18px">
     <div class="seg" id="bill"><span class="on" data-bill="m">月付</span><span data-bill="a">年付 省 20%</span></div>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(206px,1fr));gap:14px;max-width:940px;margin:0 auto">
+  <div class="pricing-plans" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(206px,1fr));gap:14px;max-width:940px;margin:0 auto">
     <div class="plan">
       <div class="pn">Free</div>
       <div class="pp" data-m="$0" data-a="$0">$0<small> / 月</small></div>
       <ul>
         <li><i class="ti ti-check"></i>每月 300 试用积分</li>
+        <li><i class="ti ti-check"></i>同时生成 1 个任务</li>
         <li><i class="ti ti-check"></i>仅低成本档模型</li>
         <li><i class="ti ti-check"></i>最高 720p 画质</li>
         <li><i class="ti ti-check"></i>产物带水印 · 留存 7 天</li>
@@ -51,6 +62,7 @@
       <div class="pp" data-m="$12" data-a="$10">$12<small> / 月</small></div>
       <ul>
         <li><i class="ti ti-check"></i>每月 2,500 积分</li>
+        <li><i class="ti ti-check"></i>同时生成 2 个任务</li>
         <li><i class="ti ti-check"></i>全部模型 · 无水印</li>
         <li><i class="ti ti-check"></i>商用授权 · 最高 1080p</li>
         <li><i class="ti ti-check"></i>结果留存 30 天</li>
@@ -63,6 +75,7 @@
       <div class="pp" data-m="$29" data-a="$23">$29<small> / 月</small></div>
       <ul>
         <li><i class="ti ti-check"></i>每月 8,000 积分</li>
+        <li><i class="ti ti-check"></i>同时生成 3 个任务</li>
         <li><i class="ti ti-check"></i>全部模型（含旗舰）· 无水印</li>
         <li><i class="ti ti-check"></i>商用授权 · 1080p</li>
         <li><i class="ti ti-check"></i>结果留存 90 天</li>
@@ -75,6 +88,7 @@
       <div class="pp" data-m="$69" data-a="$55">$69<small> / 月</small></div>
       <ul>
         <li><i class="ti ti-check"></i>每月 20,000 积分</li>
+        <li><i class="ti ti-check"></i>同时生成 6 个任务</li>
         <li><i class="ti ti-check"></i>全部模型（含旗舰）· 无水印</li>
         <li><i class="ti ti-check"></i>商用授权 · 1080p</li>
         <li><i class="ti ti-check"></i>结果留存 180 天</li>
@@ -83,7 +97,7 @@
       <div class="cta" style="border:0.5px solid #2a2a30">升级 Ultra</div>
     </div>
   </div>
-  <div style="max-width:940px;margin:26px auto 0;border:0.5px solid #1d1d22;border-radius:12px;overflow:hidden">
+  <div class="pricing-compare" style="max-width:940px;margin:26px auto 0;border:0.5px solid #1d1d22;border-radius:12px;overflow:hidden">
     <div style="padding:12px 16px;border-bottom:0.5px solid #1d1d22;background:#131316;font-size:14px;font-weight:500">订阅权益对照</div>
     <table style="width:100%;border-collapse:collapse;font-size:13px">
       <tr style="color:#9a9aa2">
@@ -94,6 +108,7 @@
         <th style="font-weight:400;padding:10px 8px">Ultra</th>
       </tr>
       <tr><td style="padding:10px 14px;border-top:0.5px solid #1d1d22;color:#9a9aa2">每月积分</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">300</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">2,500</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#c3b2ff">8,000</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">20,000</td></tr>
+      <tr><td style="padding:10px 14px;border-top:0.5px solid #1d1d22;color:#9a9aa2">同时生成任务数</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">1</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">2</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#c3b2ff">3</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">6</td></tr>
       <tr><td style="padding:10px 14px;border-top:0.5px solid #1d1d22;color:#9a9aa2">模型范围</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">仅低成本档</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">全部</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#c3b2ff">全部+旗舰</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">全部+旗舰</td></tr>
       <tr><td style="padding:10px 14px;border-top:0.5px solid #1d1d22;color:#9a9aa2">去水印</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#5c5c64">—</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">✓</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#c3b2ff">✓</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">✓</td></tr>
       <tr><td style="padding:10px 14px;border-top:0.5px solid #1d1d22;color:#9a9aa2">商用授权</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#5c5c64">—</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">✓</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#c3b2ff">✓</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">✓</td></tr>
@@ -103,12 +118,13 @@
       <tr><td style="padding:10px 14px;border-top:0.5px solid #1d1d22;color:#9a9aa2">支持</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#5c5c64">—</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#5c5c64">—</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#5c5c64">—</td><td style="text-align:center;padding:10px 8px;border-top:0.5px solid #1d1d22;color:#cfcfd6">专人支持</td></tr>
     </table>
   </div>
-  <div style="max-width:940px;margin:16px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px">
+  <div class="pricing-notes" style="max-width:940px;margin:16px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px">
     <div style="border:0.5px solid #1d1d22;border-radius:10px;padding:12px 14px;font-size:12px;color:#9a9aa2;line-height:1.6"><b style="color:#cfcfd6">订阅积分按月发放</b>，当月未用完不结转（月底清零）。</div>
     <div style="border:0.5px solid #1d1d22;border-radius:10px;padding:12px 14px;font-size:12px;color:#9a9aa2;line-height:1.6"><b style="color:#cfcfd6">加油包积分永不过期</b>，取消订阅后仍可用（仅付费订阅期间可购买）。</div>
     <div style="border:0.5px solid #1d1d22;border-radius:10px;padding:12px 14px;font-size:12px;color:#9a9aa2;line-height:1.6"><b style="color:#c3b2ff">站内积分与 API 余额（USD）两套独立</b>，计价单位不同，不可互转。</div>
     <div style="border:0.5px solid #1d1d22;border-radius:10px;padding:12px 14px;font-size:12px;color:#9a9aa2;line-height:1.6"><b style="color:#cfcfd6">随时升级，立即生效</b>；取消订阅当前周期仍可用到期，到期后转为免费版。</div>
     <div style="border:0.5px solid #1d1d22;border-radius:10px;padding:12px 14px;font-size:12px;color:#9a9aa2;line-height:1.6"><b style="color:#cfcfd6">失败不扣费</b>；生成降级按实际产出规格计费。</div>
+    <div style="border:0.5px solid #1d1d22;border-radius:10px;padding:12px 14px;font-size:12px;color:#9a9aa2;line-height:1.6"><b style="color:#cfcfd6">同时生成任务数</b>指可同时处于排队或生成中的站内任务；单个任务生成多个结果仍按 1 个任务计算。</div>
   </div>
 </div>
 
