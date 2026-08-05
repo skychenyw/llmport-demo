@@ -41,6 +41,7 @@
 .toggle-row strong{display:block;font-size:11px;font-weight:500;margin-bottom:2px}
 .toggle-row small{display:block;font-size:10px;color:#6f6f78;line-height:1.35}
 .toggle-row input{width:34px;height:18px;accent-color:#6e3aff;cursor:pointer;flex-shrink:0}
+.pro-badge{display:inline-block;margin-left:5px;padding:2px 5px;border-radius:5px;background:rgba(110,58,255,.18);color:#c3b2ff;font-size:9px;font-weight:600;vertical-align:1px}
 .run-button{width:100%;min-height:42px;display:flex;align-items:center;justify-content:center;gap:7px;background:#6e3aff;border:0;color:#fff;border-radius:9px;font-size:13px;font-weight:600;cursor:pointer}
 .run-button:disabled{background:#29292f;color:#666670;cursor:not-allowed}
 .run-note{text-align:center;color:#65656e;font-size:10px;margin-top:7px}
@@ -65,6 +66,8 @@
 .compare-card{position:relative;border:1px solid #25252c;border-radius:10px;overflow:hidden;background:#09090b;min-height:320px;display:flex;align-items:center;justify-content:center}
 .compare-card img,.compare-card video{width:100%;height:100%;max-height:500px;object-fit:contain;background:#09090b}
 .compare-card.enhanced video{filter:contrast(1.08) saturate(1.08)}
+.checkerboard{background-color:#eee;background-image:linear-gradient(45deg,#d5d5d5 25%,transparent 25%),linear-gradient(-45deg,#d5d5d5 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#d5d5d5 75%),linear-gradient(-45deg,transparent 75%,#d5d5d5 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0}
+.demo-watermark{position:absolute;right:10px;bottom:10px;z-index:3;color:rgba(255,255,255,.78);font-family:'Unbounded',sans-serif;font-size:10px;text-shadow:0 1px 4px #000;letter-spacing:.02em}
 .media-label{position:absolute;top:9px;left:9px;z-index:2;background:rgba(8,8,10,.76);border:1px solid rgba(255,255,255,.09);border-radius:999px;padding:5px 8px;font-size:10px;color:#d7d7dd}
 .result-actions{display:none;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid #202026;padding:12px 14px}
 .result-actions .meta{font-size:10px;color:#73737c;margin:0}

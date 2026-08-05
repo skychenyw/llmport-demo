@@ -47,6 +47,7 @@ a{text-decoration:none;color:inherit}
 .tcard .thumb i{font-size:26px}
 .tcard .nm{font-size:12px;margin:8px 2px 0}
 .tcard .td{font-size:11px;color:#73737c;line-height:1.45;margin:4px 2px 0}
+.home-tool-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 
 .lbl{font-size:12px;color:#9a9aa2;margin:0 0 6px}
 .sel{display:flex;align-items:center;justify-content:space-between;background:#161619;border:0.5px solid #2a2a30;border-radius:8px;padding:9px 12px;font-size:13px;color:#fff}
@@ -98,6 +99,8 @@ textarea.dk{width:100%;background:#161619;border:0.5px solid #2a2a30;border-radi
   .topnav{display:none}
   .main{padding:14px}
 }
+@media (max-width:1000px){.home-tool-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.home-tool-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* page-level + marketing + tool/model detail + subscription */
 .wrap{max-width:1040px;margin:0 auto;padding:30px 22px}

@@ -15,6 +15,8 @@
   var imageGrid=document.querySelector('[data-image-grid]');
   var actions=document.querySelector('[data-result-actions]');
   var faceEnhance=document.querySelector('[data-face-enhance]');
+  var removeWatermark=document.querySelector('[data-remove-watermark]');
+  var extensionMeta=document.querySelector('[data-extension-meta]');
 
   function toast(msg){
     var el=document.querySelector('.toast');
@@ -76,6 +78,11 @@
   document.querySelectorAll('select,textarea,input[type="text"]').forEach(function(el){el.addEventListener('input',function(){updateApiLinks();requiredReady();});});
   if(consent) consent.addEventListener('change',requiredReady);
   if(faceEnhance) faceEnhance.addEventListener('change',updateApiLinks);
+  if(removeWatermark) removeWatermark.addEventListener('change',function(){
+    updateApiLinks();
+    var watermark=document.querySelector('[data-demo-watermark]');
+    if(watermark) watermark.style.display=removeWatermark.checked?'none':'block';
+  });
 
   function chosen(name,fallback){
     var el=document.querySelector('[data-choice-group="'+name+'"] .on');
@@ -94,6 +101,17 @@
       if(prompt) query.set('prompt',prompt);
       query.set('ratio',chosen('ratio','1:1'));
       query.set('outputs',inputValue('[name="outputs"]','4'));
+    }else if(tool==='extender'){
+      query.set('workflow','video-extender');
+      var extensionDuration=chosen('duration','5s');
+      query.set('duration',extensionDuration);
+      if(extensionMeta) extensionMeta.textContent='Original + '+extensionDuration+' continuation';
+      query.set('remove_watermark',removeWatermark&&removeWatermark.checked?'true':'false');
+      var extensionPrompt=inputValue('[name="prompt"]','');
+      if(extensionPrompt) query.set('prompt',extensionPrompt);
+    }else if(tool==='background-remover'){
+      query.set('workflow','background-remover');
+      query.set('format','png');
     }else{
       query.set('workflow','video-face-swap');
       query.set('face_enhance',faceEnhance&&faceEnhance.checked?'true':'false');
@@ -116,8 +134,10 @@
     if(tool==='product-photo'){
       if(imageGrid){imageGrid.style.display='grid';imageGrid.querySelectorAll('.image-result').forEach(function(card){card.querySelectorAll('img').forEach(function(img){img.remove();});var img=mediaNode('product');if(img)card.appendChild(img);});}
     }else{
-      if(compare){compare.style.display='grid';var key=tool==='upscaler'?'video':'target';compare.querySelectorAll('[data-result-media]').forEach(function(box){box.querySelectorAll('video,img').forEach(function(x){x.remove();});var media=mediaNode(key);if(media)box.appendChild(media);});}
+      if(compare){compare.style.display='grid';var key=tool==='upscaler'||tool==='extender'?'video':(tool==='background-remover'?'image':'target');compare.querySelectorAll('[data-result-media]').forEach(function(box){box.querySelectorAll('video,img').forEach(function(x){x.remove();});var media=mediaNode(key);if(media)box.appendChild(media);});}
     }
+    var watermark=document.querySelector('[data-demo-watermark]');
+    if(watermark) watermark.style.display=removeWatermark&&removeWatermark.checked?'none':'block';
     if(actions)actions.style.display='flex';
   }
   function process(){
@@ -135,6 +155,6 @@
   }
   if(run)run.addEventListener('click',process);
   document.querySelectorAll('[data-download]').forEach(function(btn){btn.addEventListener('click',function(){toast('Demo result is ready for download');});});
-  document.querySelectorAll('[data-copy-url]').forEach(function(btn){btn.addEventListener('click',function(){navigator.clipboard&&navigator.clipboard.writeText('https://cdn.vidport.ai/tasks/demo/output.mp4');toast('Output URL copied');});});
+  document.querySelectorAll('[data-copy-url]').forEach(function(btn){btn.addEventListener('click',function(){var ext=tool==='product-photo'||tool==='background-remover'?'png':'mp4';navigator.clipboard&&navigator.clipboard.writeText('https://cdn.vidport.ai/tasks/demo/output.'+ext);toast('Output URL copied');});});
   updateApiLinks();requiredReady();
 })();
