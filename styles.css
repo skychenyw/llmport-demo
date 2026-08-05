@@ -41,11 +41,12 @@ a{text-decoration:none;color:inherit}
 .vp .t{font-size:15px;font-weight:500;margin:10px 0 6px;color:#fff}
 .vp .d{font-size:13px;color:#9a9aa2;line-height:1.6;margin:0}
 
-.tcard{cursor:pointer}
+.tcard{display:block;cursor:pointer}
 .tcard .thumb{background:#1f1f25;border-radius:10px;height:92px;display:flex;align-items:center;justify-content:center;color:#55555e;position:relative}
 .tcard:hover .thumb{background:#26262d}
 .tcard .thumb i{font-size:26px}
 .tcard .nm{font-size:12px;margin:8px 2px 0}
+.tcard .td{font-size:11px;color:#73737c;line-height:1.45;margin:4px 2px 0}
 
 .lbl{font-size:12px;color:#9a9aa2;margin:0 0 6px}
 .sel{display:flex;align-items:center;justify-content:space-between;background:#161619;border:0.5px solid #2a2a30;border-radius:8px;padding:9px 12px;font-size:13px;color:#fff}
